@@ -4,14 +4,14 @@ body{
     align-items: center;
     min-height: 100vh;
     justify-content: center;
-    background-color: #161626;
+    background-color: transparent;
     
     color: white;
    
 }
 main{
     
-    
+    filter: blur(4px);
     position: absolute;
  display: flex;
  flex-direction: column;

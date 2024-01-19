@@ -1,0 +1,141 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
+    background-color: #161616;
+}
+
+
+main{
+    background-color:white;
+    width: 25em;
+    
+    margin: 0;
+    
+    padding:20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.image{
+    border-radius: 100px;
+}
+img{
+   margin-bottom: -5px;
+    width:27.45em;
+}
+header >:first-child{
+    font-size: 1.15em;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header{
+   
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 100px;
+    width: 100%;
+    height: 50px;
+    font-size: 1.4em;
+    border-bottom: 1px solid black;
+    
+}
+
+.chevron{
+    display: flex;
+    gap:10px;
+   
+}
+.fa-solid{
+    
+   
+    padding:12px 15px 12px 15px;
+    
+}
+.fa-solid:hover{
+    background-color: rgb(227, 227, 227);
+    cursor: pointer;
+   
+    border-radius: 100%;
+    }
+        
+ul {
+   
+    list-style:none;
+   display: flex;
+   flex-wrap: wrap;
+  text-align: center;
+  padding:20px;
+  font-size: 1.2em;
+  font-weight: bold;
+ 
+ 
+
+  
+  
+   
+}
+li{
+    width: calc(100%/7);
+   
+}
+.Days{
+line-height: 50px;
+margin-top: -40px;
+
+
+}
+
+
+.Days li:hover{
+background-color: rgb(238, 238, 238);
+cursor: pointer;
+border-radius: 100%;
+
+}
+    
+.inactive{
+    color: rgb(174, 174, 174);
+}
+.next {
+    margin-left: auto;
+    margin-top: -40px;
+    background-color: #c2fbd7;
+    width: 50%;
+    
+    border-radius: 100px;
+    box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+    color: rgb(3, 116, 3);
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  
+  .next:hover {
+    box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+    transform: scale(1.05) rotate(-0.5deg);
+  }
+#velos{
+    position:absolute;
+    font-size: 25px;
+    bottom: 9px;
+    right: 200px;
+}
+
