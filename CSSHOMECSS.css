@@ -94,12 +94,12 @@ body{
 .thl-btn-service{
 
     border: 1px solid rgb(73, 79, 67);
-    border-radius: 40px;
+    border-radius: 20px;
     color:white;
     cursor: pointer;
   background-color: transparent;
     
-    font-size: 1.5em;
+    font-size: 1.1em;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight:bold;
     line-height: 3.5;
