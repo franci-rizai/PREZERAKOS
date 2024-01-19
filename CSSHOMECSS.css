@@ -16,13 +16,17 @@ body{
     
 }
 
+
 .mansalva-regular {
   font-family: "Mansalva", sans-serif;
   font-weight: 300;
   font-style: normal;
 }
 
-
+.services-div{
+ margin-top: -30px;
+    
+}
 
 .img-serv{
     width: 15em;
@@ -42,6 +46,9 @@ body{
    gap:2em;
 
     
+}
+.preze-logo{
+    width: 100%;
 }
 
 .psalidi-div{
@@ -92,17 +99,23 @@ body{
     cursor: pointer;
   background-color: transparent;
     
-    font-size: 23px;
+    font-size: 1.5em;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight:bold;
     line-height: 3.5;
     letter-spacing: 2px;
-    width: 280px;
+    width: max-content;
+    padding: 1px 20px;
     
    transition:0.5s;
    
    
     
+  }
+  .thl-btn-service:active{
+    transform: scale(0.9);
+    transition: 0.5s;
+   
   }
   .thl-btn-service:hover{
     background-color: rgb(135, 126, 75);
@@ -111,4 +124,8 @@ body{
     
   }
 
+  .last-buttons-div{
+    display: flex;
+    gap: 30px;
+  }
   
