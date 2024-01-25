@@ -14,65 +14,77 @@
   <main>
     
     <header>
-      <div >
-        JANAUARY 2024
+      <div class="month-div">
+        <h2 id="h4h"></h2>
       </div>
       <div class="chevron">
-        <i class="fa-solid fa-chevron-left"></i>
-        <i class="fa-solid fa-chevron-right"></i>
+        <i class="fa-solid fa-chevron-left" onclick="left()"></i>
+        <i class="fa-solid fa-chevron-right" onclick="right()"></i>
       </div>
     </header>
     <div class="calendar">
-    <ul class="Weeks">
-      <li>Sun</li>
-      <li>Mon</li>
-      <li>Tue</li>
-      <li>Wed</li>
-      <li>Thu</li>
-      <li>Fri</li>
-      <li>Sat</li>
-    </ul>
-    <ul class="Days">
-      <li>1</li> 
-      <li>2</li>
-      <li>3</li>
-      <li>4</li>
-      <li>5</li>
-      <li>6</li>
-      <li>7</li>
-      <li>8</li>
-      <li>9</li>
-      <li>10</li>
-      <li>11</li>
-      <li>12</li>
-      <li>13</li>
-      <li>14</li>
-      <li>15</li>
-      <li>16</li>
-      <li>17</li>
-      <li>18</li>
-      <li>19</li>
-      <li>20</li>
-      <li>21</li>
-      <li>22</li>
-      <li>23</li>
-      <li>24</li>
-      <li>25</li>
-      <li>26</li>
-      <li>27</li>
-      <li>28</li>
-      <li>29</li>
-      <li>30</li>
-      <li>31</li>
-     
-      
-
-    </ul>
-  </div>
+      <ul class="Weeks">
+        <li>Sun</li>
+        <li>Mon</li>
+        <li>Tue</li>
+        <li>Wed</li>
+        <li>Thu</li>
+        <li>Fri</li>
+        <li>Sat</li>
+      </ul>
+      <ul class="Days" id="daysList"></ul>
+    </div>
     
-  <button class="next">Next</button>
+    <button class="next" onclick="hi()">Next</button>
   
   </main>
+
+  <script>
+    function daysInThisMonth(year, month) {
+      return new Date(year, month + 1, 0).getDate();
+    }
+
+    let daysTag = document.getElementById("daysList");
+    let currentDate = new Date();
+    let currentYear = currentDate.getFullYear();
+    let currentMonth = currentDate.getMonth();
+
+    const myFunction = () => {
+      let liTag = "";
+      let daysInMonth = daysInThisMonth(currentYear, currentMonth);
+
+      for (let i = 1; i <= daysInMonth; i++) {
+        liTag += `<li>${i}</li>`;
+      }
+
+      daysTag.innerHTML = liTag;
+    }
+
+    myFunction();
+
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    let monthIndex = currentMonth;
+    let monthName = months[monthIndex];
+    document.getElementById("h4h").innerHTML = monthName;
+
+    function right() {
+      monthIndex = (monthIndex + 1) % 12;
+      currentMonth = monthIndex;
+      monthName = months[monthIndex];
+      document.getElementById("h4h").innerHTML = monthName;
+      myFunction();
+    }
+
+    function left() {
+      monthIndex = (monthIndex - 1 + 12) % 12;
+      currentMonth = monthIndex;
+      monthName = months[monthIndex];
+      document.getElementById("h4h").innerHTML = monthName;
+      myFunction();
+    }
+
+    
+  </script>
 </body>
 
 </html>

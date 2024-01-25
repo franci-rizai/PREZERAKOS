@@ -2,12 +2,14 @@ header{
     position: relative;
     height: 50vh;
     width: 100%;
+    z-index: -1;
     
-    overflow:visible;
+    
    
 }
 body{
   background-color: #252728;
+  overflow: visible;
 }
 header::before{
     content: '';
@@ -25,7 +27,7 @@ opacity: 0.8;
 }
 
 img{
-    
+  
   height: 50vh;
    
     width: 100%;

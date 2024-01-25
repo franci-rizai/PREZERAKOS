@@ -5,6 +5,7 @@ body{
     min-height: 100vh;
     justify-content: center;
     background-color: transparent;
+    border: none;
     
     color: white;
    
@@ -61,21 +62,60 @@ label{
  position: relative;
     
 }
-.userP{
+.userP,
+.passP {
     position: absolute;
+    font-size: 1.2em;
+    left: 22px;
+    top: -10px;
+    color: rgb(196, 189, 189);
+    pointer-events: none;
+    transition: top 0.4s ease-out, left 0.4s ease-out,font-size 1s linear;
+}
+
+input:focus + .passP,
+input:valid + .passP  {
     top: -40px;
-    left: 0;
-    color: white;
+    left: 5px;
+    font-size: 1em;
     
-
+    
+    transition: top 0.4s ease-out, left 0.4s ease-out,font-size 0.4s linear;
 }
-.passP{
-    position: absolute;
-    left: 0;
-    top: -40px;
+.fa-lock,.fa-user,.fa-arrow-right-from-bracket{
     color: white;
-
+    position: absolute;
+    
+    right: 18px;
+    top: 12px;
+    
+    pointer-events: none;
+    
 }
+
+.fa-arrow-right-from-bracket{
+    color: rgb(0, 0, 0);
+    position: absolute;
+    font-size: 1.5em;
+    right: 100px;
+    top: 10px;
+    transition: 0.7s;
+    pointer-events: none;
+    
+}
+
+input:focus + .userP,
+input:valid + .userP {
+    top: -40px;
+    left: 5px;
+    font-size: 1em;
+    
+    
+    transition: top 0.4s ease-out, left 0.4s ease-out,font-size 0.4s linear;
+}
+
+
+
 .user-div , .pass-div{
     position: relative;
 }
@@ -86,7 +126,7 @@ label{
     border: 1px solid rgb(255, 255, 255);
     border-radius: 20px;
     width:300px;
-    height: 1.8em;
+    height: 2.2em;
     font-size: 18px;
     margin-bottom: 10px;
     color: white;
@@ -109,7 +149,7 @@ border-radius: 20px;
 width: 310px;
 height: 43px;
 font-weight: bold;
-
+padding-right: 20px;
 cursor: pointer;
 font-size: 1.3em;
 transition:0.5s;
@@ -119,14 +159,19 @@ transition:0.5s;
 }
 
 
-.Signin-butt:active{
+.Signin-butt:active, .Signin-butt:active + .fa-arrow-right-from-bracket{
     transform: scale(0.9);
     transition:0.7s;
 }
-.Signin-butt:hover{
+.Signin-butt:hover {
     background-color: rgb(24, 23, 16);
     transition: 0.7s;
     color: white;
-   box-shadow: 0 0 20px rgb(138, 137, 135) , 0 0 30px rgb(234, 232, 220) , 0 0 30px rgb(213, 211, 200);
-    
+   box-shadow: 0 0 10px rgb(138, 137, 135) , 0 0 20px rgb(234, 232, 220) , 0 0 20px rgb(213, 211, 200);
+   
+  }
+  .Signin-butt:hover,.Signin-butt:hover + .fa-arrow-right-from-bracket {
+    color: white;
+    transition: 0.7s;
+   
   }
