@@ -1,44 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="CSSsign_inCSS.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
   <title>Preze's Grooming Haven</title>
 </head>
 <body>
- 
+
 <main>
-  <div class="Signin-div">
-    SIGN IN
-  </div>
-  
+  <form action="sign_in.php" method="post">
+    <div class="Signin-div">
+      SIGN IN
+    </div>
+    
     <div class="user-div">
-      <input class="UI" type="text" required>
+      <input class="UI" type="text" name="username" required>
       <p class="userP">Username</p>
       <i class="fa-solid fa-user"></i>
     </div>
     <div class="pass-div">
-      <input class="UI" type="password" required>
+      <input class="UI" type="password" name="password" required>
       <p class="passP">Password</p>
       <i class="fa-solid fa-lock"></i>
     </div> 
     
-
-<div>
-  <a href="#">Forgot Password?</a>
-
-</div>
-<div style="position: relative;">
-  <button class="Signin-butt">Login</button>
-  <i class="fa-solid fa-arrow-right-from-bracket"></i>
-</div>
-<div class="Register-div">
-  You don't have an account? <a href="#" >Sign up</a>
-</div>
-
+    <div>
+      <a href="#">Forgot Password?</a>
+    </div>
+    <div style="position: relative;">
+      <button type="submit" class="Signin-butt">Login</button>
+      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+    </div>
+    <div class="Register-div">
+      You don't have an account? <a href="#">Sign up</a>
+    </div>
+  </form>
 </main>
-
 
 </body>
 </html>

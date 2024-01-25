@@ -4,24 +4,24 @@ body{
     align-items: center;
     min-height: 100vh;
     justify-content: center;
-    background-color: transparent;
+  background-color: rebeccapurple;
     
     color: white;
    
 }
 main{
     
-    filter: blur(4px);
+  
     position: absolute;
  display: flex;
  flex-direction: column;
  justify-content: center;
  align-items: center;
- background-color:transparent;
+ background-color:black;
  border: 1px solid white;
  padding: 40px;
  gap:50px;
-backdrop-filter: blur(4px);
+
 border-radius: 15px;
 
 }
