@@ -20,17 +20,7 @@ body{
     
 }
 
-iframe{
-  overflow: visible;
-  position: fixed;
-  inset: 0;
-  backdrop-filter: blur(3px);
-  margin: auto;
-  height: 100%;
-  width: 100%;
-  background-color: transparent;
- 
-}
+
 .mansalva-regular {
   font-family: "Mansalva", sans-serif;
   font-weight: 300;

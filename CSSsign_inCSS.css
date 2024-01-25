@@ -4,25 +4,36 @@ body{
     align-items: center;
     min-height: 100vh;
     justify-content: center;
-    background-color: transparent;
+    background-color: #161616;
     border: none;
     
     color: white;
    
 }
+img{
+    position: absolute;
+   z-index: -1;
+    width: 100%;
+    height: 100vh;
+
+    
+}
 main{
     
     
-    position: absolute;
+    
  display: flex;
  flex-direction: column;
- justify-content: center;
+ justify-content: space-between;
  align-items: center;
- background-color:transparent;
+ background: linear-gradient(to bottom right, rgb(91, 87, 87), rgb(0, 0, 0));
+ 
  border: 1px solid white;
- padding: 40px;
+ padding: 50px;
+ box-shadow: 0px 0px 50px rgb(179, 146, 146),0px 0px 80px rgb(1, 1, 1),0px 0px 100px rgb(56, 53, 53);
+
  gap:30px;
-backdrop-filter: blur(4px);
+
 border-radius: 15px;
 
 }
@@ -152,7 +163,7 @@ font-weight: bold;
 padding-right: 20px;
 cursor: pointer;
 font-size: 1.3em;
-transition:0.5s;
+transition:0.2s;
 
 
 
@@ -160,18 +171,18 @@ transition:0.5s;
 
 
 .Signin-butt:active, .Signin-butt:active + .fa-arrow-right-from-bracket{
-    transform: scale(0.9);
-    transition:0.7s;
+   
+    transform: scale(1.05) rotate(-1deg);
+    transition:0.2s;
 }
 .Signin-butt:hover {
     background-color: rgb(24, 23, 16);
-    transition: 0.7s;
+    transition: 0.2s;
     color: white;
-   box-shadow: 0 0 10px rgb(138, 137, 135) , 0 0 20px rgb(234, 232, 220) , 0 0 20px rgb(213, 211, 200);
-   
+   box-shadow: 0 0 10px rgb(138, 137, 135) , 0 0 20px rgb(234, 232, 220)
   }
   .Signin-butt:hover,.Signin-butt:hover + .fa-arrow-right-from-bracket {
     color: white;
-    transition: 0.7s;
+    transition: 0.2s;
    
   }

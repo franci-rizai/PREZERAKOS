@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <iframe src="sign_in.html" ></iframe>
+  
   <header>
     
       <img src="background_photo.jpg">
@@ -61,9 +61,15 @@
         
         </div>
         <div class="last-buttons-div">
-        <Button class="thl-btn-service">MAKE APPOINTMENT</Button>
-        <Button class="thl-btn-service">SHOW APPOINTMENT</Button>
+        <Button class="thl-btn-service" onclick="myfunc()">APPOINTMENT</Button>
+      
       </div>
       </section>
+
+      <script>
+        function myfunc(){
+        window.location.href = 'Make_appointment.html';
+        }
+      </script>
 </body>
 </html>
