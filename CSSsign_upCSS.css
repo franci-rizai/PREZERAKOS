@@ -4,7 +4,7 @@ body{
     align-items: center;
     min-height: 100vh;
     justify-content: center;
-  background-color: #161616;
+  background-color: transparent;
     
     color: white;
    
@@ -17,25 +17,31 @@ img{
 
     
 }
-form{
-    
-  
+main{
+ 
+
     position: absolute;
  display: flex;
  flex-direction: column;
  justify-content: center;
  align-items: center;
- background-color:black;
+
+
+}
+form{
+    position: absolute;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ background-color:transparent;
  border: 1px solid white;
  padding: 40px;
- background: linear-gradient(to bottom right, rgb(95, 93, 93), rgb(0, 0, 0));
- 
- box-shadow: 0px 0px 50px rgb(178, 161, 161),0px 0px 80px rgb(1, 1, 1),0px 0px 100px rgb(56, 53, 53);
+ box-shadow: 0px 0px 50px rgb(255, 255, 255) inset,0px 0px 80px rgb(255, 255, 255) inset,0px 0px 100px rgb(255, 255, 255) inset;
 
  gap:50px;
 
 border-radius: 15px;
-
 }
 a{
     text-decoration: none;
@@ -79,7 +85,9 @@ a:hover{
     position: absolute;
     top: -40px;
     left: 0;
-    color: white;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 1.2em;
     
 
 }
@@ -88,6 +96,8 @@ a:hover{
     left: 0;
     top: -40px;
     color: white;
+    font-weight: bold;
+    font-size: 1.2em;
 
 }
 .user-div , .pass-div{
@@ -97,18 +107,19 @@ a:hover{
     
     outline: none;
     background-color: transparent;
-    border: 1px solid rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 10px;
     width:310px;
     height: 1.8em;
     font-size: 18px;
     margin-bottom: 10px;
-    color: white;
+    color: black;
+    
 }
 .firstname,.lastname{
     outline: none;
     background-color: transparent;
-    border: 1px solid rgb(255, 255, 255);
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 10px;
     width:147px;
     height: 1.8em;

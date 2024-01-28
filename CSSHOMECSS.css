@@ -1,137 +1,136 @@
 body{
-    margin: 0;
-    position: relative;
-   
-   
-    
+  margin: 0;
+  position: relative;
+ 
+ 
+  
 }
 .services-section{
-    padding-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    background-color:#252728;
-    min-height: 100svh;
-    justify-content: start;
-    align-items: center;
-    width: 100%;
-    overflow: visible;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color:#252728;
+  min-height: 100svh;
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+  overflow: visible;
 
-    
-    
+  
+  
 }
 
 
 .mansalva-regular {
-  font-family: "Mansalva", sans-serif;
-  font-weight: 300;
-  font-style: normal;
+font-family: "Mansalva", sans-serif;
+font-weight: 300;
+font-style: normal;
 }
 
 .services-div{
- margin-top: -30px;
-    
+margin-top: -30px;
+  
 }
 
 
 .img-serv{
-    width: 15em;
-   
-   height: 12em;
-  
-   
+  width: 15em;
+ 
+ height: 12em;
+
+ 
 }
 .images-div{
-    display: grid;
-    
- grid-template-columns:1fr 1fr;
+  display: grid;
+  
+grid-template-columns:1fr 1fr;
 
-   
-    
-    border-radius: 70px;
-   gap:2em;
+ 
+  
+  border-radius: 70px;
+ gap:2em;
 
-    
+  
 }
 .preze-logo{
-    width: 100%;
+  width: 100%;
 }
 
 .psalidi-div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 .psalidi-div p{
-    color:white;
-    font-family: Avenir, sans-serif;
-    font-size: 19px;
-    font-weight: 300;
-    line-height: 50px;
-    width: 60%;
-    text-align: center;
-    
-    
-    letter-spacing: 1px;
+  color:white;
+  font-family: Avenir, sans-serif;
+  font-size: 19px;
+  font-weight: 300;
+  line-height: 50px;
+  width: 60%;
+  text-align: center;
+  
+  
+  letter-spacing: 1px;
 
 }
 .psalidi-div h1{
-    color:rgb(135, 126, 75);
-    font-style: italic;
-    font-size: 35px;
-    font-weight: 900;
-    line-height: 30px;
-    font-family: Mansalva;
-    
-    
-    letter-spacing: 5px;
+  color:rgb(135, 126, 75);
+  font-style: italic;
+  font-size: 35px;
+  font-weight: 900;
+  line-height: 30px;
+  font-family: Mansalva;
+  
+  
+  letter-spacing: 5px;
 }
 .underservice-hr{
-    
-    background-color: gold;
-    color: gold;
-    height: 2px;
-    width: 60%;
-    margin-top: 32em;
   
+  background-color: gold;
+  color: gold;
+  height: 2px;
+  width: 60%;
+  margin-top: 32em;
+
 }
 .thl-btn-service{
 
-    border: 1px solid rgb(73, 79, 67);
-    border-radius: 20px;
-    color:white;
-    cursor: pointer;
-  background-color: transparent;
-    
-    font-size: 1.1em;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight:bold;
-    line-height: 3.5;
-    letter-spacing: 2px;
-    width: max-content;
-    padding: 1px 20px;
-    
-   transition:0.5s;
-   
-   
-    
-  }
-  .thl-btn-service:active{
-    transform: scale(0.9);
-    transition: 0.5s;
-   
-  }
-  .thl-btn-service:hover{
-    background-color: rgb(135, 126, 75);
-    transition: 0.5s;
-   box-shadow: 0 0 10px rgb(135, 126, 75) , 0 0 30px rgb(135, 126, 75) , 0 0 60px rgb(135, 126, 75);
-    
-  }
-
-  .last-buttons-div{
-    display: flex;
-    gap: 30px;
-  }
-
+  border: 1px solid rgb(73, 79, 67);
+  border-radius: 20px;
+  color:white;
+  cursor: pointer;
+background-color: transparent;
   
+  font-size: 1.1em;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight:bold;
+  line-height: 3.5;
+  letter-spacing: 2px;
+  width: max-content;
+  padding: 1px 20px;
+  
+ transition:0.5s;
+ 
+ 
+  
+}
+.thl-btn-service:active{
+  transform: scale(0.9);
+  transition: 0.5s;
+ 
+}
+.thl-btn-service:hover{
+  background-color: rgb(135, 126, 75);
+  transition: 0.5s;
+ box-shadow: 0 0 10px rgb(135, 126, 75) , 0 0 30px rgb(135, 126, 75) , 0 0 60px rgb(135, 126, 75);
+  
+}
+
+.last-buttons-div{
+  display: flex;
+  gap: 30px;
+}
+

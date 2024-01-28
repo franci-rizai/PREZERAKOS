@@ -1,40 +1,48 @@
 body{
-    display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            
-            background-color: #161616;
+  display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
           
-         padding: 0;
-         margin: 0;
-           backdrop-filter: blur(1.5px);
-           font-family:Verdana, Geneva, Tahoma, sans-serif;
-           
+          background-color: #161616;
+        font-weight: bold;
+       padding: 0;
+       margin: 0;
+         backdrop-filter: blur(1.5px);
+         font-family:Verdana, Geneva, Tahoma, sans-serif;
+         
+}
+img{
+position: absolute;
+z-index: -1;
+width: 100%;
+height: 100vh;
+
+
 }
 main{
-    
   
-   
- display: flex;
- flex-direction: column;
- justify-content: space-between;
- align-items: center;
- background: linear-gradient(to bottom right, rgb(19, 18, 18), rgb(255, 255, 255));
+
  
- padding: 80px;
- gap:50px;
- box-shadow: 0px 0px 50px rgb(179, 146, 146),0px 0px 80px rgb(1, 1, 1),0px 0px 100px rgb(56, 53, 53);
-border-radius: 15px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+
+padding: 80px;
+gap:50px;
+border: 2px solid white;
+border-radius: 100px;
+box-shadow: 30px 30px 100px inset white;
 
 
 }
 a{
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-   transition: 0.5s;
-    font-size: 1.2em;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+ transition: 0.5s;
+  font-size: 1.2em;
 }
 
 
@@ -42,61 +50,63 @@ a{
 
 
 .userP{
-    position: absolute;
-    top: -40px;
-    left: 0;
-    color: white;
-    
+  position: absolute;
+  top: -40px;
+  left: 0;
+  color: white;
+  
 
 }
 .passP{
-    position: absolute;
-    left: 0;
-    top: -40px;
-    color: white;
+  position: absolute;
+  left: 0;
+  top: -40px;
+  color: white;
 
 }
 .user-div , .pass-div{
-    position: relative;
+  position: relative;
 }
 .UI{
-    
-    outline: none;
-    background-color: transparent;
-    border: 3px solid rgb(0, 0, 0);
-    border-radius: 10px;
-    width:310px;
-    height: 1.8em;
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: white;
+  
+  outline: none;
+  background-color: transparent;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  width:310px;
+  height: 1.8em;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  letter-spacing: 2.2px;
 }
 .firstname,.lastname{
-    outline: none;
-    background-color: transparent;
-    border: 3px solid rgb(0, 0, 0);
-    border-radius: 10px;
-    width:147px;
-    height: 1.8em;
-    font-size: 18px;
-    margin-bottom: 7px;
-    color: white;
+  outline: none;
+  background-color: transparent;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  width:147px;
+  height: 1.8em;
+  font-size: 18px;
+  margin-bottom: 7px;
+  color: white;
 }
 
 .first-last-div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap:10px;
-    
-    
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+  
+  
 }
 .Signup-div{
-    font-size: 2em;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
-    letter-spacing: 5px;
-    margin-bottom: 30px;
+  font-size: 2em;
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-bottom: 30px;
 
 }
 .book{
@@ -119,121 +129,121 @@ transition: 0.7s;
 }
 
 .book:active{
-    transform: scale(0.9);
-    transition: 0.7s;
+  transform: scale(0.9);
+  transition: 0.7s;
 }
 .book:hover{
-    background-color: rgb(24, 23, 16);
-    transition: 0.7s;
-    color: white;
-    box-shadow: 0 0 20px rgb(138, 137, 135) , 0 0 30px rgb(234, 232, 220) , 0 0 30px rgb(213, 211, 200);
-    
-  }
+  background-color: rgb(24, 23, 16);
+  transition: 0.7s;
+  color: white;
+  box-shadow: 0 0 20px rgb(138, 137, 135) , 0 0 30px rgb(234, 232, 220) , 0 0 30px rgb(213, 211, 200);
+  
+}
 
 
 
 .big {
-   
-    border-radius: 20px;
-    
-    
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-    width: 27.5em;
+ 
+  border-radius: 20px;
   
-    height: 47em;
-   
-     /* Remove this if you don't want the 3D effect */
-  }
+  
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  width: 27.5em;
+
+  height: 47em;
+ 
+   /* Remove this if you don't want the 3D effect */
+}
 .container{
-    position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
+  position: relative;
+width: 100%;
+height: 100%;
+text-align: center;
+transition: transform 0.8s;
+transform-style: preserve-3d;
 }
 
 .front, .back {
-    position: absolute;
-    border-radius: 20px;
-    
-    width: 100%;
-    height: 97%;
-    -webkit-backface-visibility: hidden; /* Safari */
-    backface-visibility: hidden;
-  }
+  position: absolute;
+  border-radius: 20px;
   
-  .container.flip{
-    transform: rotateY(180deg);
-    transition: transform 0.8s;
-  }
-.back {
-    background-color: dodgerblue;
-    color: white;
-    border-radius: 20px;
-    transform: rotateY(180deg);
-  }
+  width: 100%;
+  height: 97%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
 
-
-
-
-
-  /* Back */
-
-  .back {
-    background: linear-gradient(to bottom right, #4878a9, #2a3a4e);
-    color: white;
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    gap: 40px;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transform: rotateY(180deg);
-  transform-style: preserve-3d;
-  }
-  
-  .info-container {
-    border: 3px inset white;
-    box-shadow: 0px 20px 10px rgb(40, 39, 39);
-    padding: 10px 2px 10px 2px;
-    border-radius: 10px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-
-  }
-  
-  .column {
-    font-size: 1.2em;
-  }
-  
-  .modify-button-container {
-    text-align: right;
-  }
-
-  .book.flip > .container {
+.container.flip{
   transform: rotateY(180deg);
   transition: transform 0.8s;
 }
-  
-  .modify-button {
-    background-color: #e44d26;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1.2em;
-    transition: background-color 0.3s ease;
-  }
-  
-  .modify-button:hover {
-    background-color: #2a3a4e;
-  }
-  
-  
+.back {
+  background-color: dodgerblue;
+  color: white;
+  border-radius: 20px;
+  transform: rotateY(180deg);
+}
+
+
+
+
+
+/* Back */
+
+.back {
+  background: linear-gradient(to bottom right, #4878a9, #2a3a4e);
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 40px;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: rotateY(180deg);
+transform-style: preserve-3d;
+}
+
+.info-container {
+  border: 3px inset white;
+  box-shadow: 0px 20px 10px rgb(40, 39, 39);
+  padding: 10px 2px 10px 2px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+
+}
+
+.column {
+  font-size: 1.2em;
+}
+
+.modify-button-container {
+  text-align: right;
+}
+
+.book.flip > .container {
+transform: rotateY(180deg);
+transition: transform 0.8s;
+}
+
+.modify-button {
+  background-color: #e44d26;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+}
+
+.modify-button:hover {
+  background-color: #2a3a4e;
+}
+
+
 
