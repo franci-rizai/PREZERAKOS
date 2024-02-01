@@ -4,7 +4,7 @@ include('index.html');
 use RedBeanPHP\R;
 
 // Set up database connection
-R::setup('mysql:host=192.168.31.8;dbname=Barbershop', 'franci', '123');
+R::setup('mysql:host=sql11.freemysqlhosting.net;dbname=sql11681307', 'sql11681307', 'Y8LhenD1Xp');
 
 if (!R::testConnection()) {
     die('Could not connect to the database. Check your connection settings.');
@@ -21,10 +21,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check if the user exists and the password is correct
     if ($user && password_verify($password, $user->password)) {
-        // Authentication successful, redirect to a secure page
-        echo "<script >
-        document.querySelector('.ptemp').innerHTML='hello';
-        </script>";
+        // Authentication successful, generate JavaScript code
+        echo '<script>
+           
+                document.querySelector(".ptemp").innerHTML = "Hello man";
+            
+        </script>';
+
+        // Redirect to a secure page
         header('Location: index.html');
         exit();
     } else {
@@ -33,3 +37,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<!-- Rest of your HTML code -->
