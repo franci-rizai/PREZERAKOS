@@ -7,21 +7,43 @@
   <title>Preze's Grooming Haven</title>
   <link href="index.html" rel="import" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <script>
+    function fetchUserData() {
+        var xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var response = JSON.parse(this.responseText);
+
+                if (response.success) {
+                    document.getElementById('userFullName').innerHTML = response.userFullName;
+                } else {
+                    console.error(response.message);
+                }
+            }
+        };
+
+        xhttp.open("GET", "get_user_data.php", true);
+        xhttp.send();
+    }
+
+    // Call the function to fetch user data when the page loads
+    fetchUserData();
+</script>
+
 </head>
 
 <body>
   
   
   <header>
-    
-    <p class="ptemp"> Hello</p>
+    <p class="ptemp">Hello <span id="userFullName"></span></p>
     <div class="buttons-header">
-    <a href="Sign_in.html"><button class="log">Sign in</button></a>
-  <a href="Sign_up.html"> <button class="reg">Sign up</button></a>
-  </div>
-     
-     
-  </header>
+        <a href="Sign_in.html"><button class="log">Sign in</button></a>
+        <a href="Sign_up.html"><button class="reg">Sign up</button></a>
+    </div>
+</header>
 
     <section id="services" class="services-section">
         <div class="services-div">
@@ -64,32 +86,6 @@
       
       </div>
       </section>
-
-  
-      <script>
-        // Use AJAX to fetch data from a PHP file
-        function fetchDataFromPHP() {
-            var xhttp = new XMLHttpRequest();
-            
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    // Parse the JSON response
-                    var response = JSON.parse(this.responseText);
-        
-                    // Extract and display the name
-                    var name = response.name;
-                    console.log("Hello, " + name + "!");
-                }
-            };
-        
-            // Specify the PHP file to fetch data from
-            xhttp.open("GET", "example.php", true);
-            xhttp.send();
-        }
-        
-        // Call the function to fetch data when the page loads
-        fetchDataFromPHP();
-        </script>
    
 </body>
 </html>
