@@ -59,4 +59,9 @@ background-color: rgba(104, 85, 224, 1);
 transform: scale(0.98);
 }
 
+.out{
+  color: rgb(253, 253, 253);
+  background-color: rgb(255, 77, 77);
+  border: none;
+}
 
