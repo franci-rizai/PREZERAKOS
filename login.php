@@ -4,7 +4,7 @@ require 'vendor/autoload.php'; // Adjust the path based on your project structur
 use RedBeanPHP\R;
 
 // Set up database connection
-R::setup('mysql:host=127.0.0.1;dbname=Barbershop', 'root', '');
+R::setup('mysql:host=192.168.31.8;dbname=Barbershop', 'franci', '123');
 
 if (!R::testConnection()) {
     die('Could not connect to the database. Check your connection settings.');
@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if the user exists and the password is correct
     if ($user && password_verify($password, $user->password)) {
         // Authentication successful, redirect to a secure page
+        echo "<script>alert('Hello world!');</script>";
         header('Location: index.html');
         exit();
     } else {

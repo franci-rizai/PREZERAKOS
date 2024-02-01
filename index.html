@@ -10,6 +10,9 @@
 </head>
 
 <body>
+  <?php
+  $name="david";
+  ?>
   
   <header>
     
@@ -65,7 +68,30 @@
       </section>
 
   
-       
+      <script>
+        // Use AJAX to fetch data from a PHP file
+        function fetchDataFromPHP() {
+            var xhttp = new XMLHttpRequest();
+            
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    // Parse the JSON response
+                    var response = JSON.parse(this.responseText);
+        
+                    // Extract and display the name
+                    var name = response.name;
+                    console.log("Hello, " + name + "!");
+                }
+            };
+        
+            // Specify the PHP file to fetch data from
+            xhttp.open("GET", "example.php", true);
+            xhttp.send();
+        }
+        
+        // Call the function to fetch data when the page loads
+        fetchDataFromPHP();
+        </script>
    
 </body>
 </html>
