@@ -6,14 +6,51 @@ header{
   background-color: rgb(26, 25, 46);
  display: flex;
  color: white;
+ 
  justify-content: space-between;
  align-items: center;
  font-family: system-ui;
 }
+.buttons-header{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+@media only screen and (max-width: 600px) {
+header{
+  flex-direction: column;
+  height: 23vh;
+  justify-content: space-around;
+}
+
+.preze-logo{
+width: 100%;
+margin-top: 10em;
+  
+}
+}
+@media only screen and (max-width: 465px) {
+  header{
+    flex-direction: column;
+    
+    height: 28vh;
+  }
+  .buttons-header{
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  .preze-logo{
+  width: 100%;
+  margin-top: 12em;
+    
+  }
+
+}
 header p{
-font-size: 1.5em;
-letter-spacing: 2px;
-color: rgba(104, 85, 224, 1);
+font-size: 2em;
+letter-spacing: 3px;
+color: rgb(255, 255, 255);
 font-weight: bold;
 
 }

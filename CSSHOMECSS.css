@@ -33,13 +33,7 @@ margin-top: -30px;
 }
 
 
-.img-serv{
-  width: 15em;
- 
- height: 12em;
 
- 
-}
 .images-div{
   display: grid;
   
@@ -52,9 +46,7 @@ grid-template-columns:1fr 1fr;
 
   
 }
-.preze-logo{
-  width: 100%;
-}
+
 
 .psalidi-div{
   display: flex;
@@ -116,6 +108,9 @@ background-color: transparent;
  
  
   
+}
+.preze-logo{
+  width: 500px;
 }
 .thl-btn-service:active{
   transform: scale(0.9);
