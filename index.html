@@ -61,7 +61,7 @@
         
         </div>
         <div class="last-buttons-div">
-     <a href="Make_appointment.html"> <Button class="thl-btn-service" >APPOINTMENT</Button></a>
+     <a href='#' id="linkmake" onclick="myfunction()"> <Button class="thl-btn-service" >APPOINTMENT</Button></a>
       
       </div>
       </section>
@@ -69,14 +69,16 @@
   
       <script>
       
+        let amake = document.getElementById('linkmake');
+
         // Check if 'name' is present in localStorage
         if (localStorage.getItem("name")) {
             var storedUsername = localStorage.getItem("name");
             document.querySelector(".ptemp").innerHTML = "Hello " + storedUsername;
             // Clear the 'name' item from localStorage after reading
            
-        
-
+            
+            amake.href='Make_appointment.html';
        
           var element = document.getElementById("log");
           element.style.display="none"; // This line removes the element
@@ -87,8 +89,14 @@
 
           
         }
-
+      
+       function myfunction(){
+        if(amake.href==='http://localhost:3000/index.html#'){
+            alert("Log In if you want to make an appointment");
+          }
+        }
         const a = document.getElementById('link');
+        
         
         a.addEventListener('click', () => {
           element.style.display="inline"; 

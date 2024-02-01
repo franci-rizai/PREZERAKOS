@@ -1,6 +1,7 @@
 <?php
+  
 require 'vendor/autoload.php'; // Adjust the path based on your project structure
-include('index.html');
+
 use RedBeanPHP\R;
 
 // Set up database connection
@@ -34,7 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     } else {
         // Authentication failed, show an error message or redirect to the login page
-        echo 'Invalid username or password';
+      
+       echo '<script> 
+     
+      window.location.href="Sign_in.html";
+       alert("Wrong Username/Password");
+      
+       </script>';
+     
     }
 }
 ?>
