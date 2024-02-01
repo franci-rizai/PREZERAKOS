@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if the user exists and the password is correct
     if ($user && password_verify($password, $user->password)) {
         // Authentication successful, redirect to a secure page
-        echo "<script>alert('Hello world!');</script>";
+        echo "<script src='code.js' ></script>";
         header('Location: index.html');
         exit();
     } else {
