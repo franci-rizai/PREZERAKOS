@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         var name = "' . $user->name . '"; 
         localStorage.setItem("name", name);
 
-        localStorage.setItem("islogged", "true");
+       
        
         window.location.href="index.html";
         </script>';
