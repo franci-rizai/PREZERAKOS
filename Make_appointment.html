@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
   <link rel="stylesheet" href="CSSmake_appointmentCSS.css" />
   <title>Preze's Grooming Haven</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -9,90 +8,34 @@
 
 <body>
   <div class="big">
- <div class="container">
-  <div class="front">
-    <main>
-      <div class="Signup-div">
-        Make Appointment
+    <div class="container">
+      <div class="front">
+        <main>
+          <form method="post" action="make_appointment.php">
+            <div class="Signup-div">
+              Make Appointment
+            </div>
+            <div class="first-last-div">
+              <div class="user-div">
+                <input class="firstname" type="date" name="date">
+                <p class="userP">Date</p>
+              </div>
+              <div class="user-div">
+                <input class="lastname" type="time" step="1800" min="9:00" name="time">
+                <p class="userP">Time</p>
+              </div>
+            </div>
+            <div class="pass-div">
+              <input class="UI" type="text" name="service">
+              <p class="passP">Service</p>
+            </div> 
+            <div>
+              <button class="book" id="bookButton" type="submit">BOOK</button>
+            </div>
+          </form>
+        </main>
       </div>
-      <div class="first-last-div">
-      <div class="user-div">
-        <input class="firstname" type="date">
-        <p class="userP">Date</p>
-      </div>
-      <div class="user-div">
-        <input class="lastname" type="time" step="1800" min="9:00">
-        <p class="userP">Time</p>
     </div>
-      </div>
-      <div class="user-div">
-        <input class="UI" type="email">
-        <p class="userP">Name</p>
-      </div>
-        <div class="user-div">
-          <input class="UI" type="tel" pattern="[0-9]{10}" required  >
-          <p class="userP">Phone Number</p>
-        </div>
-        <div class="pass-div">
-          <input class="UI" type="text">
-          <p class="passP">Service</p>
-        </div> 
-        
-    
-    
-    <div>
-      <button class="book" id="bookButton">BOOK</button>
-    </div>
-    
-    
-    </main>
-    
-</div>
-
-<div class="back">
-  <div class="info-container">
-    <!-- Columns: Name, date, time, service -->
-    <div class="column">Name: John Doe</div>
-    <div class="column">Date: 2023-04-15</div>
-    <div class="column">Time: 14:30</div>
-    <div class="column">Service: Haircut</div>
   </div>
-  <div class="info-container">
-    <!-- Columns: Name, date, time, service -->
-    <div class="column">Name: suraj sharma</div>
-    <div class="column">Date: 2023-04-16</div>
-    <div class="column">Time: 17:30</div>
-    <div class="column">Service: Haircut</div>
-  </div>
-  <div class="info-container">
-    <!-- Columns: Name, date, time, service -->
-    <div class="column">Name: franci  rizaj</div>
-    <div class="column">Date: 2023-05-15</div>
-    <div class="column">Time: 13:30</div>
-    <div class="column">Service: Haircut</div>
-  </div>
-  
-  <div class="modify-button-container">
-    <button type="submit" class="modify-button" onclick="toggleCard()">Modify</button>
-  </div>
-
-</div>
-</div>
-</div>
-  <script>
-
-    
-    document.querySelector('.modify-button').addEventListener('click', function() {
-      document.querySelector('.container').classList.toggle('flip');
-    });
-    
-    document.getElementById("bookButton").addEventListener("click", function () {
-      document.querySelector('.container').classList.toggle('flip');
-    });
-    
-    
-    
-  </script>
 </body>
-
 </html>
