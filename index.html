@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,43 +8,22 @@
   <title>Preze's Grooming Haven</title>
   <link href="index.html" rel="import" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <script>
-    function fetchUserData() {
-        var xhttp = new XMLHttpRequest();
-
-        xhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                var response = JSON.parse(this.responseText);
-
-                if (response.success) {
-                    document.getElementById('userFullName').innerHTML = response.userFullName;
-                } else {
-                    console.error(response.message);
-                }
-            }
-        };
-
-        xhttp.open("GET", "get_user_data.php", true);
-        xhttp.send();
-    }
-
-    // Call the function to fetch user data when the page loads
-    fetchUserData();
-</script>
-
 </head>
 
 <body>
   
   
   <header>
-    <p class="ptemp">Hello <span id="userFullName"></span></p>
+    
+    <p class="ptemp"> Hello</p>
     <div class="buttons-header">
-        <a href="Sign_in.html"><button class="log">Sign in</button></a>
-        <a href="Sign_up.html"><button class="reg">Sign up</button></a>
-    </div>
-</header>
+    <a href="Sign_in.html"><button class="log" id="log">Sign in</button></a>
+  <a id="link" href="Sign_up.html"> <button class="reg" id="reg">Sign up</button></a>
+  </div>
+     
+     
+  </header>
+
     <section id="services" class="services-section">
         <div class="services-div">
           <img class="preze-logo" src="preze_logo.png">
@@ -81,11 +61,53 @@
         
         </div>
         <div class="last-buttons-div">
-        <a href="Make_appointment.html">
-          <Button class="thl-btn-service" onclick="myfunc()">APPOINTMENT</Button>
-        </a>
+     <a href="Make_appointment.html"> <Button class="thl-btn-service" >APPOINTMENT</Button></a>
+      
       </div>
       </section>
+
+  
+      <script>
+      
+        // Check if 'name' is present in localStorage
+        if (localStorage.getItem("name")) {
+            var storedUsername = localStorage.getItem("name");
+            document.querySelector(".ptemp").innerHTML = "Hello " + storedUsername;
+            // Clear the 'name' item from localStorage after reading
+            localStorage.removeItem("name");
+        
+
+       
+          var element = document.getElementById("log");
+          element.style.display="none"; // This line removes the element
+          var element2 = document.getElementById("reg");
+          element2.classList.add("out");
+          element2.innerHTML="Log out";
+
+
+          
+        }
+
+        const a = document.getElementById('link');
+        
+        a.addEventListener('click', () => {
+          element.style.display="inline"; 
+          element2.classList.remove("out");
+          element2.classList.add("reg");
+          
+          element2.innerHTML="Sign Up";
+
+          if (element2.classList.contains("reg") )
+            a.href="";
+          else
+            a.href="Sign_up.html";
+          return false;
+        });
+
+      
+
+    </script>
    
 </body>
 </html>
+

@@ -34,8 +34,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Store the user in the database
     R::store($users);
 
+    
+
     // Redirect to a success page or perform other actions
-    header('Location: index.html'); // Change this to your success page
+    header('Location: Sign_in.html'); // Change this to your success page
     exit();
 }
 ?>
