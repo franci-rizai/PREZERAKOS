@@ -30,6 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Redirect to index.html
         echo '<script>
+        var name = "' . $user->name . '"; 
+        localStorage.setItem("name", name);
             window.location.href="index.html";
         </script>';
         exit();

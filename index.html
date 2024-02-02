@@ -61,61 +61,12 @@
         
         </div>
         <div class="last-buttons-div">
-     <a href='#' id="linkmake" onclick="myfunction()"> <Button class="thl-btn-service" >MAKE APPOINTMENT</Button></a>
-     <a href='#' id="linkshow" onclick="myfunction()"> <Button class="thl-btn-service" >SHOW APPOINTMENT</Button></a>
-      
+     <a href='#' id="linkmake" onclick="myfunctionmake()"> <Button class="thl-btn-service" >MAKE APPOINTMENT</Button></a>
+     
+     <a href='#' id="linkshow" onclick="myfunctionshow()"> <Button class="thl-btn-service" type="submit" >SHOW APPOINTMENT</Button></a>
+   
       </div>
-      </section>
-
-  
-      <script>
       
-        let amake = document.getElementById('linkmake');
-
-        // Check if 'name' is present in localStorage
-        if (localStorage.getItem("name")) {
-            var storedUsername = localStorage.getItem("name");
-            document.querySelector(".ptemp").innerHTML = "Hello " + storedUsername;
-            // Clear the 'name' item from localStorage after reading
-           
-            
-            amake.href='Make_appointment.html';
-       
-          var element = document.getElementById("log");
-          element.style.display="none"; // This line removes the element
-          var element2 = document.getElementById("reg");
-          element2.classList.add("out");
-          element2.innerHTML="Log out";
-
-
-          
-        }
-      
-       function myfunction(){
-        if(amake.href==='http://localhost:3000/index.html#'){
-            alert("Log In if you want to make an appointment");
-          }
-        }
-        const a = document.getElementById('link');
-        
-        
-        a.addEventListener('click', () => {
-          element.style.display="inline"; 
-          element2.classList.remove("out");
-          element2.classList.add("reg");
-          
-          element2.innerHTML="Sign Up";
-
-          if (element2.classList.contains("reg") )
-            a.href="";
-          else
-            a.href="Sign_up.html";
-          return false;
-        });
-
-      
-
-    </script>
    
 </body>
 </html>

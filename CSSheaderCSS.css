@@ -24,6 +24,9 @@ header{
   justify-content: space-around;
 }
 
+.last-buttons-div{
+  flex-direction: column;
+}
 .preze-logo{
 width: 100%;
 margin-top: 10em;
