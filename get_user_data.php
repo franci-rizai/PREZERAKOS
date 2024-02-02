@@ -9,20 +9,18 @@ session_start();
 
 // Check if the user is logged in
 if (isset($_SESSION['username'])) {
-    // Find the user by username
-    $user = R::findOne('users', 'username = ?', [$_SESSION['username']]);
+    // Fetch user data from the session
+    $userFullName = isset($_SESSION['userFullName']) ? $_SESSION['userFullName'] : '';
 
-    if ($user) {
-        // Return user data as JSON
-        echo json_encode([
-            'success' => true,
-            'userFullName' => $user->name . ' ' . $user->surname
-        ]);
-        exit();
-    }
+    // Return user data as JSON
+    echo json_encode([
+        'success' => true,
+        'userFullName' => $userFullName
+    ]);
+    exit();
 }
 
-// If not logged in or user not found
+// If not logged in
 echo json_encode(['success' => false, 'message' => 'User not found']);
 exit();
 ?>

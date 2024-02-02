@@ -6,6 +6,8 @@ use RedBeanPHP\R;
 // Set up database connection
 R::setup('mysql:host=sql11.freemysqlhosting.net;dbname=sql11681307', 'sql11681307', 'Y8LhenD1Xp');
 
+session_start();
+
 if (!R::testConnection()) {
     die('Could not connect to the database. Check your connection settings.');
 }
@@ -21,15 +23,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Check if the user exists and the password is correct
     if ($user && password_verify($password, $user->password)) {
-        // Authentication successful, generate JavaScript code
-        echo '<script>
-      
-        var name = "' . $user->name . '"; 
-        localStorage.setItem("name", name);
+        // Store user data in the session
+        $_SESSION['username'] = $username;
+        $_SESSION['userFullName'] = $user->name . ' ' . $user->surname;
 
-       
-       
-        window.location.href="index.html";
+        // Redirect to index.html
+        echo '<script>
+            window.location.href="index.html";
         </script>';
         exit();
     } else {
@@ -38,5 +38,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
 <!-- Rest of your HTML code -->

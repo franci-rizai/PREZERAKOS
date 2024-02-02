@@ -3,7 +3,11 @@ require 'vendor/autoload.php';
 use RedBeanPHP\R;
 
 // Set up database connection
-R::setup('mysql:host=sql11.freemysqlhosting.net;dbname=sql11681307', 'sql11681307', 'Y8LhenD1Xp');
+try {
+    R::setup('mysql:host=sql11.freemysqlhosting.net;dbname=sql11681307', 'sql11681307', 'Y8LhenD1Xp');
+} catch (Exception $e) {
+    die('Error connecting to the database. ' . $e->getMessage());
+}
 
 session_start();
 
@@ -29,10 +33,10 @@ function makeAppointment($date, $time, $service, $user) {
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve form data
-    $date = $_POST['date'];
-    $time = $_POST['time'];
-    $service = $_POST['service'];
+    // Retrieve form data (perform input validation and sanitization)
+    $date = htmlspecialchars($_POST['date']);
+    $time = htmlspecialchars($_POST['time']);
+    $service = htmlspecialchars($_POST['service']);
 
     // Get the logged-in user
     $currentUser = getCurrentUser();
