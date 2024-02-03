@@ -25,18 +25,29 @@
         window.onload = function () {
             fetch('show_appointment.php')
                 .then(response => response.json())
-                .then(appointments => {
-                    const tableBody = document.getElementById('appointmentsTable');
-                    appointments.forEach(appointment => {
-                        const row = tableBody.insertRow();
-                        row.insertCell(0).textContent = appointment.name;
-                        row.insertCell(1).textContent = appointment.date;
-                        row.insertCell(2).textContent = appointment.service;
-                    });
+                .then(appointmentsObject => {
+                    console.log('Appointments:', appointmentsObject);
+    
+                    // Convert object properties into an array
+                    const appointmentsArray = Object.values(appointmentsObject);
+    
+                    if (Array.isArray(appointmentsArray)) {
+                        const tableBody = document.getElementById('appointmentsTable');
+                        appointmentsArray.forEach(appointment => {
+                            const row = tableBody.insertRow();
+                            row.insertCell(0).textContent = appointment.name;
+                            row.insertCell(1).textContent = appointment.date;
+                            row.insertCell(2).textContent = appointment.service;
+                        });
+                    } else {
+                        console.error('Appointments is not an array:', appointmentsArray);
+                    }
                 })
                 .catch(error => console.error('Error fetching appointments:', error));
         };
     </script>
+    
+    
 </body>
 
 </html>
