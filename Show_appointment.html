@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +13,7 @@
     <div class="Signup-div">
         Show Appointment
     </div>
-    <table >
+    <table id="appointmentsTable">
         <tr>
             <th>Name</th>
             <th>DATETIME</th>
@@ -22,7 +21,22 @@
         </tr>
     </table>
 
-   
+    <script>
+        window.onload = function () {
+            fetch('show_appointment.php')
+                .then(response => response.json())
+                .then(appointments => {
+                    const tableBody = document.getElementById('appointmentsTable');
+                    appointments.forEach(appointment => {
+                        const row = tableBody.insertRow();
+                        row.insertCell(0).textContent = appointment.name;
+                        row.insertCell(1).textContent = appointment.date;
+                        row.insertCell(2).textContent = appointment.service;
+                    });
+                })
+                .catch(error => console.error('Error fetching appointments:', error));
+        };
+    </script>
 </body>
 
 </html>
