@@ -29,7 +29,6 @@ if (isset($_SESSION['username'], $_SESSION['userFullName'])) {
         // Get the user's appointments
         $userAppointments = getUserAppointments($_SESSION['userFullName']);
     }
-    echo '<script> console.log(' . json_encode($userAppointments) . ');</script>';
 }
 
 // Use $userAppointments as needed
