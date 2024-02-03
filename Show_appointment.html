@@ -10,27 +10,30 @@
 </head>
 
 <body>
-    <div class="Signup-div">
-        Show Appointment
-    </div>
-    <table id="appointmentsTable">
-        <tr>
-            <th>Name</th>
-            <th>DATETIME</th>
-            <th>SERVICE</th>
-        </tr>
-    </table>
+    <div class="info">
+        <div class="show-div">
+            Show Appointment
+        </div>
 
+        <table id="appointmentsTable">
+            <tr>
+                <th>Name</th>
+                <th>DATETIME</th>
+                <th>SERVICE</th>
+            </tr>
+       
+        </table>
+    </div>
     <script>
         window.onload = function () {
             fetch('show_appointment.php')
                 .then(response => response.json())
                 .then(appointmentsObject => {
                     console.log('Appointments:', appointmentsObject);
-    
+
                     // Convert object properties into an array
                     const appointmentsArray = Object.values(appointmentsObject);
-    
+
                     if (Array.isArray(appointmentsArray)) {
                         const tableBody = document.getElementById('appointmentsTable');
                         appointmentsArray.forEach(appointment => {
@@ -38,6 +41,19 @@
                             row.insertCell(0).textContent = appointment.name;
                             row.insertCell(1).textContent = appointment.date;
                             row.insertCell(2).textContent = appointment.service;
+
+                            // Create a "Delete" button in the fourth column with class "del"
+                            const deleteButtonCell = row.insertCell(3);
+                            const deleteButton = document.createElement('button');
+                            deleteButton.textContent = 'Delete';
+                            deleteButton.classList.add('del'); // Corrected line
+                            deleteButton.addEventListener('click', function () {
+                                // Handle the delete action here
+                                // You might want to call a function to delete the appointment
+                                // and remove the row from the table
+                                console.log('Delete button clicked for:', appointment.name);
+                            });
+                            deleteButtonCell.appendChild(deleteButton);
                         });
                     } else {
                         console.error('Appointments is not an array:', appointmentsArray);
@@ -46,8 +62,6 @@
                 .catch(error => console.error('Error fetching appointments:', error));
         };
     </script>
-    
-    
 </body>
 
 </html>
