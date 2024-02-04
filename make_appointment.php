@@ -21,6 +21,19 @@ function getCurrentUser() {
 
 function makeAppointment($date, $time, $service, $user) {
     if ($user) {
+        // Check if the appointment already exists
+        $existingAppointment = R::findOne('appointments', 'name = ? AND date = ? AND service = ?', [
+            $user->name . ' ' . $user->surname,
+            $date . ' ' . $time,
+            $service
+        ]);
+
+        if ($existingAppointment) {
+            // Handle the case where the appointment already exists (e.g., show an error message)
+            return false;
+        }
+
+        // If the appointment doesn't exist, create a new one
         $appointment = R::dispense('appointments');
         $appointment->name = $user->name . ' ' . $user->surname;
         $appointment->date = $date . ' ' . $time;
@@ -48,7 +61,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     } else {
         // Handle the case where the appointment couldn't be made
-        echo 'Error making appointment';
+       echo' <script> alert("Sorry, Current Date and Time is Taken");
+        window.location.href="Make_appointment.html";
+       </script>';
+       
+
     }
 }
 ?>
