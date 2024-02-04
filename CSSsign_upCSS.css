@@ -37,8 +37,7 @@ form{
  background-color:transparent;
  border: 1px solid white;
  padding: 40px;
- box-shadow: 0px 0px 50px rgb(255, 255, 255) inset,0px 0px 80px rgb(255, 255, 255) inset,0px 0px 100px rgb(255, 255, 255) inset;
-
+ backdrop-filter: blur(2px);
  gap:50px;
 
 border-radius: 15px;
@@ -113,7 +112,7 @@ a:hover{
     height: 1.8em;
     font-size: 18px;
     margin-bottom: 10px;
-    color: black;
+    color: rgb(255, 255, 255);
     
 }
 .firstname,.lastname{

@@ -12,10 +12,10 @@
 
 <body>
   
-  
+ 
   <header>
     
-    <p class="ptemp"> Hello</p>
+    <p class="ptemp">Let's Make Your Hair's Day</p>
     <div class="buttons-header">
     <a href="Sign_in.html"><button class="log" id="log">Sign in</button></a>
   <a id="link" href="Sign_up.html"> <button class="reg" id="reg" onclick=" localStorage.removeItem('name');  ">Sign up</button></a>
@@ -77,7 +77,7 @@
         // Check if 'name' is present in localStorage
         if (localStorage.getItem("name")) {
             var storedUsername = localStorage.getItem("name");
-            document.querySelector(".ptemp").innerHTML = "Hello " + storedUsername;
+            document.querySelector(".ptemp").innerHTML = "WELCOME " + storedUsername ;
             // Clear the 'name' item from localStorage after reading
            
             

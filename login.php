@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['userFullName'] = $user->name . ' ' . $user->surname;
 
         // Redirect to index.html
-        echo '<script>
-        var name = "' . $user->name . '"; 
+        echo '<script> 
+        var name = "' . $user->name . ' ' . $user->surname .'"; 
         localStorage.setItem("name", name);
             window.location.href="index.html";
         </script>';
