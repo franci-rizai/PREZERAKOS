@@ -4,7 +4,7 @@ require 'vendor/autoload.php'; // Adjust the path based on your project structur
 use RedBeanPHP\R;
 
 // Set up database connection
-R::setup('mysql:host=sql11.freemysqlhosting.net;dbname=sql11681307', 'sql11681307', 'Y8LhenD1Xp');
+R::setup('localhost', 'root', '');
 
 if (!R::testConnection()) {
     die('Could not connect to the database. Check your connection settings.');

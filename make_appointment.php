@@ -4,7 +4,7 @@ use RedBeanPHP\R;
 
 // Set up database connection
 try {
-    R::setup('mysql:host=sql11.freemysqlhosting.net;dbname=sql11681307', 'sql11681307', 'Y8LhenD1Xp');
+    R::setup('localhost', 'root', '');
 } catch (Exception $e) {
     die('Error connecting to the database. ' . $e->getMessage());
 }

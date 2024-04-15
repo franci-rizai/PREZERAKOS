@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 use RedBeanPHP\R;
 
-R::setup('mysql:host=sql11.freemysqlhosting.net;dbname=sql11681307', 'sql11681307', 'Y8LhenD1Xp');
+R::setup('localhost', 'root', '');
 
 session_start();
 
