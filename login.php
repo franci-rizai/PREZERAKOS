@@ -4,6 +4,19 @@ require 'vendor/autoload.php'; // Adjust the path based on your project structur
 
 use RedBeanPHP\R;
 
+// Function to handle user authentication
+function authenticateUser($db, $username, $password) {
+    // Find the user by username using the provided database connection
+    $user = $db::findOne('users', 'username = ?', [$username]);
+
+    // Check if the user exists and the password is correct
+    if ($user && password_verify($password, $user->password)) {
+        return $user;
+    } else {
+        return false;
+    }
+}
+
 // Set up database connection
 R::setup('localhost', 'root', '');
 
@@ -19,32 +32,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Find the user by username
-    $user = R::findOne('users', 'username = ?', [$username]);
+    // Authenticate the user using the authenticateUser function with dependency injection
+    $authenticatedUser = authenticateUser(R::class, $username, $password);
 
-    // Check if the user exists and the password is correct
-    if ($user && password_verify($password, $user->password)) {
+    if ($authenticatedUser) {
         // Store user data in the session
         $_SESSION['username'] = $username;
-        $_SESSION['userFullName'] = $user->name . ' ' . $user->surname;
+        $_SESSION['userFullName'] = $authenticatedUser->name . ' ' . $authenticatedUser->surname;
 
         // Redirect to index.html
         echo '<script> 
-        var name = "' . $user->name . ' ' . $user->surname .'"; 
+        var name = "' . $authenticatedUser->name . ' ' . $authenticatedUser->surname .'"; 
         localStorage.setItem("name", name);
             window.location.href="index.html";
         </script>';
         exit();
     } else {
         // Authentication failed, show an error message or redirect to the login page
-      
-       echo '<script> 
-     
-      window.location.href="Sign_in.html";
-       alert("Wrong Username/Password");
-      
-       </script>';
-     
+        echo '<script> 
+        window.location.href="Sign_in.html";
+        alert("Wrong Username/Password");
+        </script>';
     }
 }
 ?>
