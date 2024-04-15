@@ -2,7 +2,7 @@ use PHPUnit\Framework\TestCase;
 use RedBeanPHP\R;
 
 // Include the get_user_data.php script
-require_once 'path/to/your/get_user_data.php';
+require_once 'PREZERAKOS/get_user_data.php';
 
 class GetUserDataTest extends TestCase
 {

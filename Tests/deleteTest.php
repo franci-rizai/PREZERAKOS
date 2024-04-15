@@ -2,7 +2,7 @@ use PHPUnit\Framework\TestCase;
 use RedBeanPHP\R;
 
 // Include the delete_appointment.php script
-require_once 'path/to/your/delete_appointment.php';
+require_once 'PREZERAKOS/delete_appointment.php';
 
 class DeleteAppointmentTest extends TestCase
 {
