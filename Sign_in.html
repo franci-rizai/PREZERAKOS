@@ -12,31 +12,67 @@
 <img src="backg.jpg">
 <main>
  
-  <form action="login.php" method="post">
+  <form id="loginForm" method="post">
     <div class="Signin-div">
       SIGN IN
     </div>
     
     <div class="user-div">
-      <input class="UI" type="text" name="username" required>
+      <input class="UI" type="text" id="username" name="username" required>
       <p class="userP">Username</p>
       <i class="fa-solid fa-user"></i>
     </div>
     
     <div class="pass-div">
-      <input class="UI" type="password" name="password" required>
+      <input class="UI" type="password" id="password" name="password" required>
       <p class="passP">Password</p>
       <i class="fa-solid fa-lock"></i>
     </div> 
     
     <div style="position: relative;">
-      <button type="submit" class="Signin-butt" onclick="localStorage.clear();">Login</button>
+      <button type="button" id="loginButton" class="Signin-butt">Login</button>
       <i class="fa-solid fa-arrow-right-from-bracket"></i>
     </div>
     <div class="Register-div">
       You don't have an account? <a href="Sign_up.html">Sign up</a>
     </div>
   </form>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const loginForm = document.getElementById('loginForm');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const loginButton = document.getElementById('loginButton');
+
+        loginButton.addEventListener('click', function () {
+            const formData = new FormData(loginForm);
+            const formDataJSON = {};
+            formData.forEach((value, key) => {
+                formDataJSON[key] = value;
+            });
+
+            fetch('login.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formDataJSON),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response data here
+                // For example, redirect to another page if login is successful
+                if (data.success) {
+                    window.location.href = 'index.html';
+                } else {
+                    alert(data.message); // Show error message
+                }
+            })
+            .catch(error => console.error('Error during login:', error));
+        });
+    });
+</script>
  
 </main>
 

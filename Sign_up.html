@@ -9,41 +9,82 @@
 <body>
   <img src="backg.jpg">
   <main>
-    <form action="register.php" method="post">
+    <div id="signupForm">
       <div class="Signup-div">
         SIGN UP
       </div>
       <div class="first-last-div">
         <div class="user-div">
-          <input class="firstname" type="text" name="name">
+          <input class="firstname" id="firstName" type="text" name="name">
           <p class="userP">First Name</p>
         </div>
         <div class="user-div">
-          <input class="lastname" type="text" name="surname">
+          <input class="lastname" id="lastName" type="text" name="surname">
           <p class="userP">Last Name</p>
         </div>
       </div>
       <div class="user-div">
-        <input class="UI" type="email" name="email">
+        <input class="UI" id="email" type="email" name="email">
         <p class="userP">Email</p>
       </div>
       <div class="user-div">
-        <input class="UI" type="text" name="username">
+        <input class="UI" id="username" type="text" name="username">
         <p class="userP">Username</p>
       </div>
       <div class="pass-div">
-        <input class="UI" type="password" name="password">
+        <input class="UI" id="password" type="password" name="password">
         <p class="passP">Password</p>
       </div>
 
       <div>
-        <button class="Signup-butt" type="submit">Sign up</button>
+        <button class="Signup-butt" id="signupButton" type="button">Sign up</button>
       </div>
       <div class="Register-div">
         You already have an account?<a href="Sign_in.html"> Sign in</a>
       </div>
-    </form>
+    </div>
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const signupForm = document.getElementById('signupForm');
+      const firstNameInput = document.getElementById('firstName');
+      const lastNameInput = document.getElementById('lastName');
+      const emailInput = document.getElementById('email');
+      const usernameInput = document.getElementById('username');
+      const passwordInput = document.getElementById('password');
+      const signupButton = document.getElementById('signupButton');
+
+      signupButton.addEventListener('click', function () {
+        const formData = {
+          name: firstNameInput.value,
+          surname: lastNameInput.value,
+          email: emailInput.value,
+          username: usernameInput.value,
+          password: passwordInput.value
+        };
+
+        fetch('register.php', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+          })
+          .then(response => response.json())
+          .then(data => {
+            // Handle the response data here
+            // For example, redirect to another page if registration is successful
+            if (data.success) {
+              window.location.href = 'Sign_in.html';
+            } else {
+              alert(data.message); // Show error message
+            }
+          })
+          .catch(error => console.error('Error during registration:', error));
+      });
+    });
+  </script>
 </body>
 
 </html>

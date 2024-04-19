@@ -11,38 +11,76 @@
     <div class="container">
       <div class="front">
         <main>
-          <form method="post" action="make_appointment.php">
+          <div id="error-message" style="display: none; color: red;"></div> <!-- Error message container -->
+          <form id="appointment-form">
             <div class="Signup-div">
               Make Appointment
             </div>
             <div class="first-last-div">
               <div class="user-div">
-                <input class="firstname" type="date" name="date" required>
+                <input class="firstname" type="date" id="date" required>
                 <p class="userP">Date</p>
               </div>
               <div class="user-div">
-                <input class="lastname" type="time" step="1800" min="9:00" name="time" required>
+                <input class="lastname" type="time" step="1800" min="9:00" id="time" required>
                 <p class="userP">Time</p>
               </div>
             </div>
             <div class="pass-div">
-              <select class="UI" name="service" required>
+              <select class="UI" id="service" required>
                 <option value="Haircut">Haircut</option>
                 <option value="Shampoo">Shampoo</option>
                 <option value="Hair Dye">Hair Dye</option>
                 <option value="All Package">All Package</option>
-            </select>
-            <p class="passP">Service</p>
+              </select>
+              <p class="passP">Service</p>
             </div> 
             <div>
               <button class="book" id="bookButton" type="submit">BOOK</button>
-             </div>
+            </div>
           </form>
           <a href="index.html"> <button class="butt-cancel">HOME</button> </a>
-            
         </main>
       </div>
     </div>
   </div>
+
+  <script>
+    // Function to handle form submission
+    document.getElementById('appointment-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      // Get form data
+      var formData = new FormData();
+      formData.append('date', document.getElementById('date').value);
+      formData.append('time', document.getElementById('time').value);
+      formData.append('service', document.getElementById('service').value);
+
+      // Send POST request to the back-end API endpoint
+      fetch('make_appointment.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Check if the appointment was successfully created
+        if (data.success) {
+          alert('Appointment booked successfully!');
+          // Redirect to the home page or any other page
+          window.location.href = 'index.html';
+        } else {
+          // Display error message if appointment creation failed
+          document.getElementById('error-message').innerText = data.message;
+          document.getElementById('error-message').style.display = 'block';
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Display error message if there was a network error
+        document.getElementById('error-message').innerText = 'An error occurred. Please try again later.';
+        document.getElementById('error-message').style.display = 'block';
+      });
+    });
+  </script>
 </body>
 </html>

@@ -70,60 +70,19 @@
 
   
       <script>
-      
-        let amake = document.getElementById('linkmake');
-        let ashow = document.getElementById('linkshow');
-
-        // Check if 'name' is present in localStorage
-        if (localStorage.getItem("name")) {
-            var storedUsername = localStorage.getItem("name");
-            document.querySelector(".ptemp").innerHTML = "WELCOME " + storedUsername ;
-            // Clear the 'name' item from localStorage after reading
-           
-            
-            amake.href='Make_appointment.html';
-          ashow.href='Show_appointment.html';
-          var element = document.getElementById("log");
-          element.style.display="none"; // This line removes the element
-          var element2 = document.getElementById("reg");
-          element2.classList.add("out");
-          element2.innerHTML="Log out";
-
-
-          
-        }
-      
-       function myfunctionmake(){
-        if(amake.href==='http://localhost:3000/index.html#'){
-            alert("Log In if you want to make an appointment");
-          }
-        }
-
-        function myfunctionshow(){
-          if(amake.href==='http://localhost:3000/index.html#'){
-              alert("Log In if you want to show appointments");
-            }
-          }
-        const a = document.getElementById('link');
-        
-        
-        a.addEventListener('click', () => {
-          element.style.display="inline"; 
-          element2.classList.remove("out");
-          element2.classList.add("reg");
-          
-          element2.innerHTML="Sign Up";
-
-          if (element2.classList.contains("reg") )
-            a.href="";
-          else
-            a.href="Sign_up.html";
-          return false;
+        document.addEventListener('DOMContentLoaded', function () {
+          const signInButton = document.getElementById('log');
+          const signUpButton = document.getElementById('reg');
+    
+          signInButton.addEventListener('click', function () {
+            window.location.href = 'Sign_in.html'; // Redirect to the sign-in page
+          });
+    
+          signUpButton.addEventListener('click', function () {
+            window.location.href = 'Sign_up.html'; // Redirect to the sign-up page
+          });
         });
-
-      
-
-    </script>
+      </script>
    
 </body>
 </html>

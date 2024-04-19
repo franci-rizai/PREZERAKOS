@@ -28,54 +28,62 @@
     </div>
     <script>
         window.onload = function () {
-            fetch('show_appointment.php')
-                .then(response => response.json())
-                .then(appointmentsObject => {
-                    console.log('Appointments:', appointmentsObject);
+            // Function to fetch appointments data
+            function fetchAppointments() {
+                fetch('get_user_data.php') // Assuming get_user_data.php returns the appointments data
+                    .then(response => response.json())
+                    .then(appointmentsObject => {
+                        console.log('Appointments:', appointmentsObject);
 
-                    // Convert object properties into an array
-                    const appointmentsArray = Object.values(appointmentsObject);
+                        // Convert object properties into an array
+                        const appointmentsArray = Object.values(appointmentsObject);
 
-                    if (Array.isArray(appointmentsArray)) {
-                        const tableBody = document.getElementById('appointmentsTable');
-                        appointmentsArray.forEach(appointment => {
-                            const row = tableBody.insertRow();
-                            row.insertCell(0).textContent = appointment.name;
-                            row.insertCell(1).textContent = appointment.date;
-                            row.insertCell(2).textContent = appointment.service;
+                        if (Array.isArray(appointmentsArray)) {
+                            const tableBody = document.getElementById('appointmentsTable');
+                            tableBody.innerHTML = ''; // Clear existing table content
+                            appointmentsArray.forEach(appointment => {
+                                const row = tableBody.insertRow();
+                                row.insertCell(0).textContent = appointment.name;
+                                row.insertCell(1).textContent = appointment.date;
+                                row.insertCell(2).textContent = appointment.service;
 
-                            // Create a "Delete" button in the fourth column with class "del"
-                            const deleteButtonCell = row.insertCell(3);
-                            const deleteButton = document.createElement('button');
-                            deleteButton.textContent = 'Delete';
-                            deleteButton.classList.add('del'); // Corrected line
-                            deleteButton.addEventListener('click', function () {
-                                // Handle the delete action here
-                                // You might want to call a function to delete the appointment
-                                // and remove the row from the table
-                                fetch('delete_appointment.php', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/x-www-form-urlencoded',
-                                    },
-                                    body: new URLSearchParams({
-                                        id: appointment.id,
-                                    }),
-                                })
-                                .then(response => response.text())
-                                .then(result => {
-                                    console.log(result);
-                                    // Handle the result or update the UI accordingly
-                                })
-                                .catch(error => console.error('Error deleting appointment:', error));
+                                // Create a "Delete" button in the fourth column with class "del"
+                                const deleteButtonCell = row.insertCell(3);
+                                const deleteButton = document.createElement('button');
+                                deleteButton.textContent = 'Delete';
+                                deleteButton.classList.add('del');
+                                deleteButton.addEventListener('click', function () {
+                                    // Handle the delete action here
+                                    // You might want to call a function to delete the appointment
+                                    // and remove the row from the table
+                                    fetch('delete_appointment.php', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/x-www-form-urlencoded',
+                                        },
+                                        body: new URLSearchParams({
+                                            id: appointment.id,
+                                        }),
+                                    })
+                                    .then(response => response.text())
+                                    .then(result => {
+                                        console.log(result);
+                                        // After deletion, fetch appointments again to update the UI
+                                        fetchAppointments();
+                                    })
+                                    .catch(error => console.error('Error deleting appointment:', error));
+                                });
+                                deleteButtonCell.appendChild(deleteButton);
                             });
-                            deleteButtonCell.appendChild(deleteButton);
-                        });
-                    } else {
-                        console.error('Appointments is not an array:', appointmentsArray);
-                    }
-                })
-                .catch(error => console.error('Error fetching appointments:', error));
+                        } else {
+                            console.error('Appointments is not an array:', appointmentsArray);
+                        }
+                    })
+                    .catch(error => console.error('Error fetching appointments:', error));
+            }
+
+            // Call the fetchAppointments function on page load to populate the table
+            fetchAppointments();
         };
     </script>
 </body>
