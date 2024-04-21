@@ -4,7 +4,7 @@ require 'vendor/autoload.php'; // Adjust the path based on your project structur
 use RedBeanPHP\R;
 
 // Set up database connection
-R::setup('localhost', 'root', '');
+R::setup('mysql:host=localhost;dbname=BarberShop', 'root', '');
 
 if (!R::testConnection()) {
     die('Could not connect to the database. Check your connection settings.');
@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
     // Redirect to a success page or perform other actions
-    header('Location: Sign_in.html'); // Change this to your success page
+    header('Location: index.html'); // Change this to your success page
     exit();
 }
 ?>
