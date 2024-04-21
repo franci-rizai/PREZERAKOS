@@ -13,11 +13,12 @@ if (!R::testConnection()) {
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve user input
-    $name = $_POST['name'];
-    $surname = $_POST['surname'];
+    $name = $_POST['firstName'];
+    $surname = $_POST['lastName'];
     $email = $_POST['email'];
     $username = $_POST['username'];
     $password = $_POST['password'];
+
 
     // Create a RedBean bean for the 'users' table
     $users = R::dispense('users');

@@ -12,31 +12,23 @@
 <img src="backg.jpg">
 <main>
  
-  <form id="loginForm" method="post">
-    <div class="Signin-div">
-      SIGN IN
-    </div>
-    
+  <form action="login.php" method="post">
     <div class="user-div">
-      <input class="UI" type="text" id="username" name="username" required>
-      <p class="userP">Username</p>
-      <i class="fa-solid fa-user"></i>
+        <input class="UI" type="text" name="username" required>
+        <p class="userP">Username</p>
+        <i class="fa-solid fa-user"></i>
     </div>
-    
     <div class="pass-div">
-      <input class="UI" type="password" id="password" name="password" required>
-      <p class="passP">Password</p>
-      <i class="fa-solid fa-lock"></i>
+        <input class="UI" type="password" name="password" required>
+        <p class="passP">Password</p>
+        <i class="fa-solid fa-lock"></i>
     </div> 
-    
     <div style="position: relative;">
-      <button type="button" id="loginButton" class="Signin-butt">Login</button>
-      <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <button type="submit" class="Signin-butt" onclick="localStorage.clear();">Login</button>
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
     </div>
-    <div class="Register-div">
-      You don't have an account? <a href="Sign_up.html">Sign up</a>
-    </div>
-  </form>
+</form>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
