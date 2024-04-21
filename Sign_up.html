@@ -15,24 +15,24 @@
       </div>
       <div class="first-last-div">
         <div class="user-div">
-          <input class="firstname" id="firstName" type="text" name="name">
+          <input class="firstname" id="firstName" type="text" placeholder="First Name" required>
           <p class="userP">First Name</p>
         </div>
         <div class="user-div">
-          <input class="lastname" id="lastName" type="text" name="surname">
+          <input class="lastname" id="lastName" type="text" placeholder="Last Name" required>
           <p class="userP">Last Name</p>
         </div>
       </div>
       <div class="user-div">
-        <input class="UI" id="email" type="email" name="email">
+        <input class="UI" id="email" type="email" placeholder="Email" required>
         <p class="userP">Email</p>
       </div>
       <div class="user-div">
-        <input class="UI" id="username" type="text" name="username">
+        <input class="UI" id="username" type="text" placeholder="Username" required>
         <p class="userP">Username</p>
       </div>
       <div class="pass-div">
-        <input class="UI" id="password" type="password" name="password">
+        <input class="UI" id="password" type="password" placeholder="Password" required>
         <p class="passP">Password</p>
       </div>
 
@@ -47,15 +47,15 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const signupForm = document.getElementById('signupForm');
-      const firstNameInput = document.getElementById('firstName');
-      const lastNameInput = document.getElementById('lastName');
-      const emailInput = document.getElementById('email');
-      const usernameInput = document.getElementById('username');
-      const passwordInput = document.getElementById('password');
       const signupButton = document.getElementById('signupButton');
 
       signupButton.addEventListener('click', function () {
+        const firstNameInput = document.getElementById('firstName');
+        const lastNameInput = document.getElementById('lastName');
+        const emailInput = document.getElementById('email');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+
         const formData = {
           name: firstNameInput.value,
           surname: lastNameInput.value,
