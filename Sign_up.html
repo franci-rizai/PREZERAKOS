@@ -72,8 +72,7 @@
           })
           .then(response => response.json())
           .then(data => {
-            // Handle the response data here
-            // For example, redirect to another page if registration is successful
+           
             if (data.success) {
               window.location.href = 'Sign_in.html';
             } else {
