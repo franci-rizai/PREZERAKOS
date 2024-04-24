@@ -27,8 +27,8 @@ class IntegrationTest extends TestCase
             ],
         ]);
 
-        $this->assertEquals(302, $response->getStatusCode()); // Expecting a redirect
-        $this->assertStringContainsString('Sign_in.html', $response->getHeaderLine('Location')); // Check redirect location
+        $this->assertEquals(302, $response->getStatusCode(), 'Registration request sent successfully'); // Success message for assertion
+        $this->assertStringContainsString('Sign_in.html', $response->getHeaderLine('Location'), 'Redirected to sign-in page after registration'); // Success message for assertion
     }
 
     public function testLogin()
@@ -40,8 +40,8 @@ class IntegrationTest extends TestCase
             ],
         ]);
 
-        $this->assertEquals(200, $response->getStatusCode()); // Expecting successful login
-        $this->assertStringContainsString('index.html', $response->getBody()->getContents()); // Check if redirected to index.html
+        $this->assertEquals(200, $response->getStatusCode(), 'Login request sent successfully'); // Success message for assertion
+        $this->assertStringContainsString('index.html', $response->getBody()->getContents(), 'Successfully logged in and redirected to index.html'); // Success message for assertion
     }
 
     public function testMakeAppointment()
@@ -63,8 +63,8 @@ class IntegrationTest extends TestCase
             ],
         ]);
 
-        $this->assertEquals(302, $response->getStatusCode()); // Expecting a redirect
-        $this->assertStringContainsString('index.html', $response->getHeaderLine('Location')); // Check redirect location
+        $this->assertEquals(302, $response->getStatusCode(), 'Appointment request sent successfully'); // Success message for assertion
+        $this->assertStringContainsString('index.html', $response->getHeaderLine('Location'), 'Redirected to index.html after making appointment'); // Success message for assertion
     }
 
     public function testShowAppointment()
@@ -79,8 +79,8 @@ class IntegrationTest extends TestCase
 
         $response = $this->client->get('show_appointment.php');
 
-        $this->assertEquals(200, $response->getStatusCode()); // Expecting successful response
-        $this->assertStringContainsString('userFullName', $response->getBody()->getContents()); // Check if user appointments are returned
+        $this->assertEquals(200, $response->getStatusCode(), 'Show appointment request sent successfully'); // Success message for assertion
+        $this->assertStringContainsString('userFullName', $response->getBody()->getContents(), 'User appointments retrieved successfully'); // Success message for assertion
     }
 
     public function testGetUserData()
@@ -95,8 +95,8 @@ class IntegrationTest extends TestCase
 
         $response = $this->client->get('get_user_data.php');
 
-        $this->assertEquals(200, $response->getStatusCode()); // Expecting successful response
-        $this->assertStringContainsString('userFullName', $response->getBody()->getContents()); // Check if user data is returned
+        $this->assertEquals(200, $response->getStatusCode(), 'Get user data request sent successfully'); // Success message for assertion
+        $this->assertStringContainsString('userFullName', $response->getBody()->getContents(), 'User data retrieved successfully'); // Success message for assertion
     }
 
     public function testDeleteAppointment()
@@ -130,7 +130,7 @@ class IntegrationTest extends TestCase
             ],
         ]);
 
-        $this->assertEquals(200, $response->getStatusCode()); // Expecting successful response
-        $this->assertStringContainsString('Appointment deleted successfully', $response->getBody()->getContents()); // Check if appointment is deleted successfully
+        $this->assertEquals(200, $response->getStatusCode(), 'Delete appointment request sent successfully'); // Success message for assertion
+        $this->assertStringContainsString('Appointment deleted successfully', $response->getBody()->getContents(), 'Appointment deleted successfully'); // Success message for assertion
     }
 }
