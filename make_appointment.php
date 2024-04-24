@@ -30,7 +30,7 @@ function makeAppointment($db, $date, $time, $service, $user) {
 
 // Set up database connection
 try {
-    R::setup('mysql:host=localhost;dbname=BarberShop', 'root', '');
+    R::setup('mysql:host=127.0.0.1;dbname=barbershop', 'Suraj', '1234');
 } catch (Exception $e) {
     die('Error connecting to the database. ' . $e->getMessage());
 }

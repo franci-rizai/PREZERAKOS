@@ -2,7 +2,7 @@
 require 'vendor/autoload.php';
 use RedBeanPHP\R;
 
-R::setup('mysql:host=localhost;dbname=BarberShop', 'root', '');
+R::setup('mysql:host=127.0.0.1;dbname=barbershop', 'Suraj', '1234');
 
 session_start();
 

@@ -1,3 +1,4 @@
+<!-- Sign_up.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,78 +12,73 @@
     SIGN UP
   </div>
   <div class="first-last-div">
-  <div class="user-div">
-    <input class="firstname" type="text">
-    <p class="userP">First Name</p>
+    <div class="user-div">
+      <input class="firstname" type="text" name="firstName">
+      <p class="userP">First Name</p>
+    </div>
+    <div class="user-div">
+      <input class="lastname" type="text" name="lastName">
+      <p class="userP">Last Name</p>
+    </div>
   </div>
   <div class="user-div">
-    <input class="lastname" type="text">
-    <p class="userP">Last Name</p>
-</div>
-  </div>
-  <div class="user-div">
-    <input class="UI" type="email">
+    <input class="UI" type="email" name="email">
     <p class="userP">Email</p>
   </div>
-    <div class="user-div">
-      <input class="UI" type="text">
-      <p class="userP">Username</p>
-    </div>
-    <div class="pass-div">
-      <input class="UI" type="password">
-      <p class="passP">Password</p>
-    </div> 
-    
-
-
-<div>
-  <button class="Signup-butt">Sign up</button>
-</div>
-<div class="Register-div">
-  You already have an account?<a href="Sign_in.html"> Sing in</a>
-</div>
-
+  <div class="user-div">
+    <input class="UI" type="text" name="username">
+    <p class="userP">Username</p>
+  </div>
+  <div class="pass-div">
+    <input class="UI" type="password" name="password">
+    <p class="passP">Password</p>
+  </div> 
+  <div>
+    <button class="Signup-butt" id="signupButton">Sign up</button>
+  </div>
+  <div class="Register-div">
+    You already have an account?<a href="Sign_in.html"> Sign in</a>
+  </div>
 </main>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const signupButton = document.getElementById('signupButton');
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const signupButton = document.querySelector('.Signup-butt');
 
-      signupButton.addEventListener('click', function () {
-        const firstNameInput = document.getElementById('firstName');
-        const lastNameInput = document.getElementById('lastName');
-        const emailInput = document.getElementById('email');
-        const usernameInput = document.getElementById('username');
-        const passwordInput = document.getElementById('password');
+    signupButton.addEventListener('click', function () {
+      const firstNameInput = document.querySelector('.firstname');
+      const lastNameInput = document.querySelector('.lastname');
+      const emailInput = document.querySelector('.UI[type="email"]');
+      const usernameInput = document.querySelector('.UI[type="text"]');
+      const passwordInput = document.querySelector('.UI[type="password"]');
 
-        const formData = {
-          name: firstNameInput.value,
-          surname: lastNameInput.value,
-          email: emailInput.value,
-          username: usernameInput.value,
-          password: passwordInput.value
-        };
+      const formData = {
+        firstName: firstNameInput.value,
+        lastName: lastNameInput.value,
+        email: emailInput.value,
+        username: usernameInput.value,
+        password: passwordInput.value
+      };
 
-        fetch('register.php', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-          })
-          .then(response => response.json())
-          .then(data => {
-           
-            if (data.success) {
-              window.location.href = 'Sign_in.html';
-            } else {
-              alert(data.message); // Show error message
-            }
-          })
-          .catch(error => console.error('Error during registration:', error));
-      });
+      fetch('register.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            window.location.href = 'Sign_in.html';
+          } else {
+            alert(data.message);
+          }
+        })
+        .catch(error => console.error('Error during registration:', error));
     });
-  </script>
-</body>
+  });
+</script>
 
+</body>
 </html>

@@ -10,7 +10,7 @@ class IntegrationTest extends TestCase
     {
         // Set up Guzzle HTTP client
         $this->client = new Client([
-            'base_uri' => 'http://localhost/path/to/your/', // Adjust the base URI
+            'base_uri' => 'localhost', // Adjust the base URI
             'http_errors' => false, // Don't throw exceptions for HTTP errors
         ]);
     }
