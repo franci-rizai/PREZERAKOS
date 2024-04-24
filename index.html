@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,15 +13,14 @@
   
  
   <header>
-    
     <p class="ptemp">Let's Make Your Hair's Day</p>
-    <div class="buttons-header">
-    <a href="Sign_in.html"><button class="log" id="log">Sign in</button></a>
-  <a id="link" href="Sign_up.html"> <button class="reg" id="reg" onclick=" localStorage.removeItem('name');  ">Sign up</button></a>
-  </div>
-     
-     
+    <div id="headerButtons" class="buttons-header"> <!-- Added id="headerButtons" -->
+      <!-- Default "Sign in" and "Sign up" buttons -->
+      <a href="Sign_in.html"><button class="log" id="log">Sign in</button></a>
+      <a href="Sign_up.html"> <button class="reg" id="reg">Sign up</button></a>
+    </div>
   </header>
+  
 
     <section id="services" class="services-section">
         <div class="services-div">
@@ -61,19 +59,34 @@
         
         </div>
         <div class="last-buttons-div">
-     <a href='#' id="linkmake" onclick="myfunctionmake()"> <Button class="thl-btn-service" >MAKE APPOINTMENT</Button></a>
-     
-     <a href='#' id="linkshow" onclick="myfunctionshow()"> <Button class="thl-btn-service" >SHOW APPOINTMENT</Button></a>
-      
+          <!-- Button to make an appointment -->
+          <a href='#' id="linkmake" onclick="redirectToMakeAppointmentPage()"> <Button class="thl-btn-service" >MAKE APPOINTMENT</Button></a>
+          <!-- Button to show appointments -->
+          <a href='#' id="linkshow" onclick="redirectToAppointmentPage()"> <Button class="thl-btn-service" >SHOW APPOINTMENT</Button></a>
       </div>
-      </section>
+    </section>
 
-  
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const signInButton = document.getElementById('log');
-          const signUpButton = document.getElementById('reg');
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const signInButton = document.getElementById('log');
+        const signUpButton = document.getElementById('reg');
+        const headerButtons = document.getElementById('headerButtons');
     
+        // Check if user is logged in (assuming you store this information in localStorage)
+        const loggedInUser = localStorage.getItem('name');
+    
+        if (loggedInUser) {
+          // If user is logged in, replace sign in and sign up buttons with logout button
+          headerButtons.innerHTML = '<button class="log" id="logout">Logout</button>';
+          const logoutButton = document.getElementById('logout');
+          logoutButton.addEventListener('click', function () {
+            // Clear user data from localStorage
+            localStorage.removeItem('name');
+            // Redirect to the home page or any other page
+            window.location.href = 'index.html';
+          });
+        } else {
+          // If user is not logged in, keep sign in and sign up buttons
           signInButton.addEventListener('click', function () {
             window.location.href = 'Sign_in.html'; // Redirect to the sign-in page
           });
@@ -81,9 +94,36 @@
           signUpButton.addEventListener('click', function () {
             window.location.href = 'Sign_up.html'; // Redirect to the sign-up page
           });
-        });
-      </script>
-   
+        }
+      });
+
+      // Function to redirect to the show appointment page
+      function redirectToAppointmentPage() {
+        // Check if user is logged in (assuming you store this information in localStorage)
+        const loggedInUser = localStorage.getItem('name');
+    
+        if (loggedInUser) {
+          // Redirect to the show appointment page
+          window.location.href = 'show_appointment.html';
+        } else {
+          // If user is not logged in, display an alert to sign in first
+          alert('Please sign in first to view appointments.');
+        }
+      }
+
+      // Function to redirect to the make appointment page
+      function redirectToMakeAppointmentPage() {
+        // Check if user is logged in (assuming you store this information in localStorage)
+        const loggedInUser = localStorage.getItem('name');
+    
+        if (loggedInUser) {
+          // Redirect to the make appointment page
+          window.location.href = 'make_appointment.html';
+        } else {
+          // If user is not logged in, display an alert to sign in first
+          alert('Please sign in first to make an appointment.');
+        }
+      }
+    </script>
 </body>
 </html>
-

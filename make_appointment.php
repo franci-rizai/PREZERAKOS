@@ -4,8 +4,14 @@ use RedBeanPHP\R;
 
 // Function to make appointment with dependency injection
 function makeAppointment($db, $date, $time, $service, $user) {
+    // Check if the user is logged in
     if ($user) {
-        // Check if the appointment already exists using the provided database connection
+        // Sanitize input data
+        $date = htmlspecialchars($date);
+        $time = htmlspecialchars($time);
+        $service = htmlspecialchars($service);
+
+        // Check if the appointment already exists
         $existingAppointment = $db::findOne('appointments', 'name = ? AND date = ? AND service = ?', [
             $user->name . ' ' . $user->surname,
             $date . ' ' . $time,
@@ -14,7 +20,7 @@ function makeAppointment($db, $date, $time, $service, $user) {
 
         if ($existingAppointment) {
             // Handle the case where the appointment already exists (e.g., show an error message)
-            return false;
+            return json_encode(['success' => false, 'message' => 'Appointment already exists']);
         }
 
         // If the appointment doesn't exist, create a new one
@@ -23,9 +29,9 @@ function makeAppointment($db, $date, $time, $service, $user) {
         $appointment->date = $date . ' ' . $time;
         $appointment->service = $service;
         $id = $db::store($appointment);
-        return true;
+        return json_encode(['success' => true, 'message' => 'Appointment created successfully']);
     }
-    return false;
+    return json_encode(['success' => false, 'message' => 'User not logged in']);
 }
 
 // Set up database connection
@@ -48,24 +54,15 @@ function getCurrentUser($db) {
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve form data (perform input validation and sanitization)
-    $date = htmlspecialchars($_POST['date']);
-    $time = htmlspecialchars($_POST['time']);
-    $service = htmlspecialchars($_POST['service']);
+    // Retrieve form data
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $service = $_POST['service'];
 
     // Get the logged-in user using dependency injection
     $currentUser = getCurrentUser(R::class);
 
     // Make the appointment using dependency injection
-    if ($currentUser && makeAppointment(R::class, $date, $time, $service, $currentUser)) {
-        // Redirect to a success page
-        header('Location: index.html');
-        exit();
-    } else {
-        // Handle the case where the appointment couldn't be made
-        echo ' <script> alert("Sorry, Current Date and Time is Taken");
-        window.location.href="Make_appointment.html";
-        </script>';
-    }
+    echo makeAppointment(R::class, $date, $time, $service, $currentUser);
 }
 ?>
