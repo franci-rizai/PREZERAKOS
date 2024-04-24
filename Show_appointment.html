@@ -30,7 +30,7 @@
         window.onload = function () {
             // Function to fetch appointments data
             function fetchAppointments() {
-                fetch('get_user_data.php') // Assuming get_user_data.php returns the appointments data
+                fetch('show_appointment.php') 
                     .then(response => response.json())
                     .then(appointmentsObject => {
                         console.log('Appointments:', appointmentsObject);
