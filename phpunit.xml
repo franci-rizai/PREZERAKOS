@@ -4,12 +4,12 @@
     xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
     bootstrap="vendor/autoload.php"
     verbose="true">
-    <!-- Add any additional configuration settings here -->
-</phpunit>
 
-<php>
-    <server name="DB_HOST" value="localhost"/>
-    <server name="DB_DATABASE" value="BARBERSHOP"/>
-    <server name="DB_USERNAME" value="root"/>
-    <server name="DB_PASSWORD" value=""/>
-</php>
+    <!-- PHPUnit configuration -->
+    <php>
+        <server name="DB_HOST" value="localhost"/>
+        <server name="DB_DATABASE" value="barbershop"/>
+        <server name="DB_USERNAME" value="Suraj"/>
+        <server name="DB_PASSWORD" value="1234"/>
+    </php>
+</phpunit>
