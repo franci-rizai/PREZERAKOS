@@ -1,0 +1,1 @@
+{"version":1,"defects":{"IntegrationTest::testUserRegistration":7,"IntegrationTest::testMakeAppointment":7,"IntegrationTest::testDeleteAppointment":7},"times":{"IntegrationTest::testUserRegistration":0.028,"IntegrationTest::testUserLogin":0.084,"IntegrationTest::testMakeAppointment":0.047,"IntegrationTest::testDeleteAppointment":0.019}}

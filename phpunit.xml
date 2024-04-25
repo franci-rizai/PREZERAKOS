@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd"
-    bootstrap="vendor/autoload.php"
-    verbose="true">
-
-    <!-- PHPUnit configuration -->
-    <php>
-        <server name="DB_HOST" value="localhost"/>
-        <server name="DB_DATABASE" value="barbershop"/>
-        <server name="DB_USERNAME" value="Suraj"/>
-        <server name="DB_PASSWORD" value="1234"/>
-    </php>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd" bootstrap="vendor/autoload.php" cacheDirectory=".phpunit.cache">
+  <!-- PHPUnit configuration -->
+  <php>
+    <server name="DB_HOST" value="localhost"/>
+    <server name="DB_DATABASE" value="barbershop"/>
+    <server name="DB_USERNAME" value="Suraj"/>
+    <server name="DB_PASSWORD" value="1234"/>
+  </php>
 </phpunit>
