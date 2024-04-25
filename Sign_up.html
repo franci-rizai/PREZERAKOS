@@ -1,4 +1,3 @@
-<!-- Sign_up.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,9 +42,12 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    const signupButton = document.querySelector('.Signup-butt');
+    console.log("DOMContentLoaded event fired.");
+    const signupButton = document.getElementById('signupButton');
+    console.log("signupButton:", signupButton);
 
     signupButton.addEventListener('click', function () {
+      console.log("Signup button clicked.");
       const firstNameInput = document.querySelector('.firstname');
       const lastNameInput = document.querySelector('.lastname');
       const emailInput = document.querySelector('.UI[type="email"]');
@@ -59,6 +61,7 @@
         username: usernameInput.value,
         password: passwordInput.value
       };
+      console.log("formData:", formData);
 
       fetch('register.php', {
           method: 'POST',
@@ -69,6 +72,7 @@
         })
         .then(response => response.json())
         .then(data => {
+          console.log("Registration response:", data);
           if (data.success) {
             window.location.href = 'Sign_in.html';
           } else {
