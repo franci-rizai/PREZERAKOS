@@ -16,6 +16,16 @@ class IntegrationTest extends TestCase
         return $response;
     }
 
+    public function testAccessShowAppointmentWithoutLogin()
+    {
+        $response = file_get_contents('http://localhost/PREZERAKOS/show_appointment.php');
+
+        $responseData = json_decode($response, true);
+
+        $this->assertFalse($responseData['success']);
+        $this->assertEquals('User not found', $responseData['message']);
+    }
+
     public function testUserRegistration()
     {
         $data = [
