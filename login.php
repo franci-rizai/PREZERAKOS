@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php'; // Adjust the path based on your project structure
+require 'vendor/autoload.php';
 
 use RedBeanPHP\R;
 
@@ -47,15 +47,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </script>';
         exit();
     } else {
-        // Authentication failed, show an error message or redirect to the login page
         echo '<script> 
         window.location.href="Sign_in.html";
         alert("Wrong Username/Password");
         </script>';
     }
 } elseif(isset($_SESSION['username'])) {
-    // If the session username exists, the user is already logged in
-    // Redirect to index.html or any other authenticated page
     echo '<script> 
     window.location.href="index.html";
     </script>';

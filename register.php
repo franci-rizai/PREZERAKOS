@@ -1,5 +1,5 @@
 <?php
-require 'vendor/autoload.php'; // Adjust the path based on your project structure
+require 'vendor/autoload.php';
 
 use RedBeanPHP\R;
 
@@ -31,7 +31,7 @@ if (!empty($input->firstName) && !empty($input->lastName) && !empty($input->emai
     $users->surname = $surname;
     $users->email = $email;
     $users->username = $username;
-    $users->password = password_hash($password, PASSWORD_DEFAULT); // Hash the password
+    $users->password = password_hash($password, PASSWORD_DEFAULT);
 
     // Store the user in the database
     $id = R::store($users);
@@ -48,10 +48,8 @@ if (!empty($input->firstName) && !empty($input->lastName) && !empty($input->emai
     $response = ['success' => false, 'message' => 'Invalid form data'];
 }
 
-// Set the correct content type for JSON
 header('Content-Type: application/json');
 // Output the JSON response
 echo json_encode($response);
-// Exit to prevent any further output
 exit();
 ?>
