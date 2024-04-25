@@ -30,7 +30,6 @@ class IntegrationTest extends TestCase
         $this->assertNotEmpty($response);
         $responseData = json_decode($response, true);
         $this->assertTrue(isset($responseData['success']) && $responseData['success'], 'User registration failed');
-        // Add more assertions if needed
     }
 
     public function testUserLogin()
@@ -42,8 +41,8 @@ class IntegrationTest extends TestCase
 
         $response = $this->sendPostRequest('http://localhost/PREZERAKOS/login.php', $data);
         $this->assertNotEmpty($response);
-        // Add assertions for login success, e.g., check for redirect or token
-        $this->assertTrue(true, 'User login successful');
+        $responseData = json_decode($response, true);
+        $this->assertTrue(isset($responseData['success']) && $responseData['success'], 'User login failed');
     }
 
     public function testMakeAppointment()
@@ -61,7 +60,6 @@ class IntegrationTest extends TestCase
         $this->assertNotEmpty($response);
         $responseData = json_decode($response, true);
         $this->assertTrue(isset($responseData['success']) && $responseData['success'], 'Appointment creation failed');
-        // Add more assertions if needed
     }
 
     public function testDeleteAppointment()
@@ -75,7 +73,6 @@ class IntegrationTest extends TestCase
         $this->assertNotEmpty($response);
         $responseData = json_decode($response, true);
         $this->assertTrue(isset($responseData['success']) && $responseData['success'], 'Appointment deletion failed');
-        // Add more assertions if needed
     }
 }
 ?>
