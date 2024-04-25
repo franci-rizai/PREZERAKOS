@@ -1,55 +1,87 @@
 <?php
+require_once 'vendor/autoload.php';
+
 use PHPUnit\Framework\TestCase;
 
-class IntegrationTest extends TestCase {
-    // Set up the test environment
-    public function setUp(): void {
-        // Set up your test environment here, e.g., database connection, test data setup
-        // Make sure to use a separate testing database to avoid data corruption in the production database
-        // You may also need to set up autoloaders or include necessary files
-        require_once 'vendor/autoload.php'; // Adjust the path based on your project structure
-        require_once 'register.php';
-        // Include any other necessary files
-        
-        // Set up a testing database connection
-        R::setup('mysql:host=127.0.0.1;dbname=test_barbershop', 'test_user', 'test_password');
+class IntegrationTest extends TestCase
+{
+    // Test user registration
+    public function testUserRegistration()
+    {
+        $data = [
+            'firstName' => 'John',
+            'lastName' => 'Doe',
+            'email' => 'john.doe@example.com',
+            'username' => 'johndoe',
+            'password' => 'password123'
+        ];
+
+        $response = $this->sendPostRequest('register.php', $data);
+        $this->assertNotEmpty($response);
+        $responseData = json_decode($response, true);
+        $this->assertTrue(isset($responseData['success']) && $responseData['success']);
+        // Add more assertions if needed
     }
 
-    // Test User Registration
-    public function testUserRegistration() {
-        // Simulate user input
-        $_POST['firstName'] = 'John';
-        $_POST['lastName'] = 'Doe';
-        $_POST['email'] = 'john@example.com';
-        $_POST['username'] = 'john_doe';
-        $_POST['password'] = 'password';
+    // Test user login
+    public function testUserLogin()
+    {
+        $data = [
+            'username' => 'johndoe',
+            'password' => 'password123'
+        ];
 
-        // Capture the output of the registration script
-        ob_start();
-        include 'register.php';
-        $output = ob_get_clean();
-
-        // Decode the JSON response
-        $response = json_decode($output, true);
-
-        // Assert that registration was successful
-        $this->assertEquals(true, $response['success']);
-
-        // Optionally, you can also assert that the user data is correctly stored in the database
-        // You may need to query the database to check if the user exists and has the correct data
-        // Example:
-        // $user = R::findOne('users', 'username = ?', ['john_doe']);
-        // $this->assertNotNull($user);
-        // $this->assertEquals('John', $user->name);
-        // $this->assertEquals('Doe', $user->surname);
-        // Add more assertions as needed
+        $response = $this->sendPostRequest('login.php', $data);
+        $this->assertNotEmpty($response);
+        // Add assertions for login success, e.g., check for redirect or token
     }
 
-    // Clean up the test environment
-    public function tearDown(): void {
-        // Clean up any test data or resources created during testing
-        // Reset the database to its initial state if necessary
-        // Close any open connections or files
+    // Test appointment creation
+    public function testMakeAppointment()
+    {
+        // Ensure the user is logged in first
+        $_SESSION['username'] = 'johndoe';
+
+        $data = [
+            'date' => '2024-04-25',
+            'time' => '10:00',
+            'service' => 'Haircut'
+        ];
+
+        $response = $this->sendPostRequest('make_appointment.php', $data);
+        $this->assertNotEmpty($response);
+        $responseData = json_decode($response, true);
+        $this->assertTrue(isset($responseData['success']) && $responseData['success']);
+        // Add more assertions if needed
+    }
+
+    // Test appointment deletion
+    public function testDeleteAppointment()
+    {
+        // Ensure the user is logged in first
+        $_SESSION['username'] = 'johndoe';
+
+        // Assume there is an appointment ID to delete
+        $data = ['id' => 1];
+
+        $response = $this->sendPostRequest('delete_appointment.php', $data);
+        $this->assertNotEmpty($response);
+        $responseData = json_decode($response, true);
+        $this->assertTrue(isset($responseData['success']) && $responseData['success']);
+        // Add more assertions if needed
+    }
+
+
+    // Helper function to send POST requests
+    private function sendPostRequest($url, $data)
+    {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return $response;
     }
 }
 ?>
